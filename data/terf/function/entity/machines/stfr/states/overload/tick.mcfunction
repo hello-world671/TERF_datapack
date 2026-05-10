@@ -25,13 +25,14 @@ scoreboard players add @s terf_data_V 100
 scoreboard players operation temp terf_states = @s terf_data_E
 scoreboard players operation temp terf_states *= 2 terf_states
 execute if score temp terf_states matches 501.. run scoreboard players set temp terf_states 500
+execute if score @s[tag=terf_manual_stabilization_failed] terf_data_E matches ..175 run scoreboard players set temp terf_states 350
 scoreboard players operation @s terf_data_V += temp terf_states
 execute if score @s terf_data_E matches ..250 run function terf:entity/machines/stfr/visuals/stabilizer/rotor_particles/steam_ejection
 
 $execute if score @s terf_data_E matches 5 as @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1] run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/tick
 $execute if score @s terf_data_E matches 105 run kill @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1]
 
-execute if score @s terf_data_E matches 20 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.overload.overdrive',level:3,text:'{"text":"Overdriving Stabilizers To Maintain Internal Shield Intensity...","color":"red"}'}
+execute if score @s[tag=!terf_manual_stabilization_failed] terf_data_E matches 20 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.overload.overdrive',level:3,text:'{"text":"Overdriving Stabilizers To Maintain Internal Shield Intensity...","color":"red"}'}
 
 execute if score @s terf_data_E matches 320 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.overload.restab_options',level:1,text:'{"text":"Restabilization Options Found:","color":"gold"}'}
 execute if score @s terf_data_E matches 321 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'none',level:0,text:'{"text":"- Stasis Laser Activation"}'}
