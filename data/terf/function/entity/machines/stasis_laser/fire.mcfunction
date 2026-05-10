@@ -5,7 +5,8 @@ execute store result score temp terf_states run data get storage terf:temp args.
 scoreboard players remove temp terf_states 2
 execute store result storage terf:temp args.Pos[1] int 1 run scoreboard players get temp terf_states
 
-execute at @n[tag=terf_stfr] run function terf:entity/machines/stasis_laser/summon_end_crystal with storage terf:temp args
+execute at @n[type=marker,tag=terf_stfr] run function terf:entity/machines/stasis_laser/summon_end_crystal with storage terf:temp args
+execute as @n[type=marker,tag=terf_stfr] at @s run function terf:entity/machines/stfr/states/in_stasis/start
 
 data merge block ^ ^2 ^2 {is_waxed:1b,front_text:{has_glowing_text:1b,color:green,messages:[{text:"Running",underlined:1b},"","",""]}}
 
@@ -25,6 +26,9 @@ playsound minecraft:block.beacon.activate ambient @a[distance=0..] ~ ~ ~ 5 2
 playsound minecraft:block.beacon.activate ambient @a[distance=0..] ~ ~ ~ 5 2
 playsound minecraft:block.beacon.activate ambient @a[distance=0..] ~ ~ ~ 5 2
 
+playsound terf:music.bgmusic2 master @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
+playsound terf:music.bgmusic2 master @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
+playsound terf:music.bgmusic2 master @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
 playsound terf:music.bgmusic2 master @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
 
 playsound terf:music.hacknet_music_end master @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
