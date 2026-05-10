@@ -22,15 +22,6 @@ playsound minecraft:block.beacon.activate ambient @a[distance=0..] ~ ~ ~ 5 2
 playsound minecraft:block.beacon.activate ambient @a[distance=0..] ~ ~ ~ 5 2
 playsound minecraft:block.beacon.activate ambient @a[distance=0..] ~ ~ ~ 5 2
 
-playsound terf:music.bgmusic2 ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
-playsound terf:music.bgmusic2 ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
-playsound terf:music.bgmusic2 ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
-playsound terf:music.bgmusic2 ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
-playsound terf:music.bgmusic2 ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
-playsound terf:music.bgmusic2 ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
-playsound terf:music.bgmusic2 ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
-playsound terf:music.bgmusic2 ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
-
 playsound terf:music.hacknet_music_end ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
 playsound terf:music.hacknet_music_end ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
 playsound terf:music.hacknet_music_end ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
