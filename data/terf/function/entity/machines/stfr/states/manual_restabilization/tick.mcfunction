@@ -2,7 +2,7 @@
 data modify storage terf:temp displays.group_main[1].messages[1] set value {"text":"⚠OUTR FAIL⚠","color":"dark_red"}
 data modify storage terf:temp displays.group_core[].color set value "red"
 data modify storage terf:temp displays.group_core[0].messages[3][1][].color set value "white"
-execute if score @s terf_data_E matches 350.. run data modify storage terf:temp displays.group_core[0].messages[3][1][-1].color set value "blue"
+execute if score @s terf_data_E matches 335.. run data modify storage terf:temp displays.group_core[0].messages[3][1][-1].color set value "blue"
 
 function terf:autokick
 
@@ -23,28 +23,90 @@ scoreboard players add @s terf_data_V 500
 data modify storage terf:temp displays.group_main[].color set value "red"
 function terf:entity/machines/stfr/visuals/stabilizer/rod_animation_step
 
-execute if score @s terf_data_E matches 351.. run function terf:entity/machines/stfr/visuals/stabilizer/rod_animation_step
-execute if score @s terf_data_E matches 351.. run function terf:entity/machines/stfr/visuals/stabilizer/rod_animation_step
-execute if score @s terf_data_E matches 351.. run function terf:entity/machines/stfr/visuals/stabilizer/rod_animation_step
+execute if score @s terf_data_E matches 337.. run function terf:entity/machines/stfr/visuals/stabilizer/rod_animation_step
+execute if score @s terf_data_E matches 337.. run function terf:entity/machines/stfr/visuals/stabilizer/rod_animation_step
+execute if score @s terf_data_E matches 337.. run function terf:entity/machines/stfr/visuals/stabilizer/rod_animation_step
 
 function terf:entity/machines/stfr/visuals/stabilizer/rotation/rotate_stabilizers with entity @s data.terf
 tag @s add terf_stfr_opshield
 
 scoreboard players set core_scale terf_states 200
-execute if score @s terf_data_E matches 340.. run function terf:entity/machines/stfr/visuals/shield/tick
-execute if score @s terf_data_E matches 340.. run function terf:entity/machines/stfr/visuals/stabilizer/stabilizer_shield_beam_tick
+execute if score @s terf_data_E matches 335.. run function terf:entity/machines/stfr/visuals/shield/tick
+execute if score @s terf_data_E matches 335.. run function terf:entity/machines/stfr/visuals/stabilizer/stabilizer_shield_beam_tick
+
+#axuillery shield formation animation
+$execute if score @s terf_data_E matches ..335 as @e[type=minecraft:marker,tag=terf_related_$(machine_id),tag=terf_axuillery_shield_formation] at @s run function terf:entity/machines/stfr/states/manual_restabilization/axuillery_shield_formation/tick
+$execute if score @s terf_data_E matches 100..335 as @e[type=minecraft:marker,tag=terf_related_$(machine_id),tag=terf_axuillery_shield_formation] at @s run function terf:entity/machines/stfr/states/manual_restabilization/axuillery_shield_formation/tick
+$execute if score @s terf_data_E matches 150..335 as @e[type=minecraft:marker,tag=terf_related_$(machine_id),tag=terf_axuillery_shield_formation] at @s run function terf:entity/machines/stfr/states/manual_restabilization/axuillery_shield_formation/tick
+$execute if score @s terf_data_E matches 200..335 as @e[type=minecraft:marker,tag=terf_related_$(machine_id),tag=terf_axuillery_shield_formation] at @s run function terf:entity/machines/stfr/states/manual_restabilization/axuillery_shield_formation/tick
+$execute if score @s terf_data_E matches 250..335 as @e[type=minecraft:marker,tag=terf_related_$(machine_id),tag=terf_axuillery_shield_formation] at @s run function terf:entity/machines/stfr/states/manual_restabilization/axuillery_shield_formation/tick
+$execute if score @s terf_data_E matches 300..335 as @e[type=minecraft:marker,tag=terf_related_$(machine_id),tag=terf_axuillery_shield_formation] at @s run function terf:entity/machines/stfr/states/manual_restabilization/axuillery_shield_formation/tick
+$execute if score @s terf_data_E matches 300..335 as @e[type=minecraft:marker,tag=terf_related_$(machine_id),tag=terf_axuillery_shield_formation] at @s run function terf:entity/machines/stfr/states/manual_restabilization/axuillery_shield_formation/tick
+$execute if score @s terf_data_E matches 335 run kill @e[type=minecraft:marker,tag=terf_related_$(machine_id),tag=terf_axuillery_shield_formation]
+
+
+#slowly reduce size of flares as shield forms
+$execute if score @s terf_data_E matches 260 as @e[type=minecraft:text_display,tag=terf_related_$(machine_id),tag=terf_overload_flare] run data modify entity @s transformation.scale set value [0.9f,0.9f,1f]
+$execute if score @s terf_data_E matches 270 as @e[type=minecraft:text_display,tag=terf_related_$(machine_id),tag=terf_overload_flare] run data modify entity @s transformation.scale set value [0.8f,0.8f,1f]
+$execute if score @s terf_data_E matches 280 as @e[type=minecraft:text_display,tag=terf_related_$(machine_id),tag=terf_overload_flare] run data modify entity @s transformation.scale set value [0.7f,0.7f,1f]
+$execute if score @s terf_data_E matches 290 as @e[type=minecraft:text_display,tag=terf_related_$(machine_id),tag=terf_overload_flare] run data modify entity @s transformation.scale set value [0.6f,0.6f,1f]
+$execute if score @s terf_data_E matches 300 as @e[type=minecraft:text_display,tag=terf_related_$(machine_id),tag=terf_overload_flare] run data modify entity @s transformation.scale set value [0.5f,0.5f,1f]
+$execute if score @s terf_data_E matches 310 as @e[type=minecraft:text_display,tag=terf_related_$(machine_id),tag=terf_overload_flare] run data modify entity @s transformation.scale set value [0.4f,0.4f,1f]
+$execute if score @s terf_data_E matches 320 as @e[type=minecraft:text_display,tag=terf_related_$(machine_id),tag=terf_overload_flare] run data modify entity @s transformation.scale set value [0.3f,0.3f,1f]
+$execute if score @s terf_data_E matches 330 as @e[type=minecraft:text_display,tag=terf_related_$(machine_id),tag=terf_overload_flare] run data modify entity @s transformation.scale set value [0.2f,0.2f,1f]
+
+#plasma being carried out by the cores distorted magnetic field
+execute if score @s terf_data_E matches ..335 store result score temp terf_states run random value -10..10
+execute if score @s terf_data_E matches ..335 run scoreboard players operation @s terf_data_Af += temp terf_states
+
+execute if score @s terf_data_E matches ..335 store result score temp terf_states run random value -10..10
+execute if score @s terf_data_E matches ..335 run scoreboard players operation @s terf_data_Ag += temp terf_states
+
+execute if score @s terf_data_E matches ..335 store result score temp terf_states run random value -10..10
+execute if score @s terf_data_E matches ..335 run scoreboard players operation @s terf_data_Ah += temp terf_states
+
+execute if score @s terf_data_E matches ..335 if score @s terf_data_Af matches 101.. run scoreboard players set @s terf_data_Af 100
+execute if score @s terf_data_E matches ..335 if score @s terf_data_Af matches ..-101 run scoreboard players set @s terf_data_Af -100
+
+execute if score @s terf_data_E matches ..276 if score @s terf_data_Ag matches 101.. run scoreboard players set @s terf_data_Ag 100
+execute if score @s terf_data_E matches ..276 if score @s terf_data_Ag matches ..-101 run scoreboard players set @s terf_data_Ag -100
+
+execute if score @s terf_data_E matches ..276 if score @s terf_data_Ah matches -99.. run scoreboard players set @s terf_data_Ah -100
+execute if score @s terf_data_E matches ..276 if score @s terf_data_Ah matches ..-201 run scoreboard players set @s terf_data_Ah -200
+
+execute if score @s terf_data_E matches 276..335 run scoreboard players set @s terf_data_Ag 0
+execute if score @s terf_data_E matches 276..335 if score @s terf_data_Ah matches ..99 run scoreboard players set @s terf_data_Ah 100
+execute if score @s terf_data_E matches 276..335 if score @s terf_data_Ah matches 201.. run scoreboard players set @s terf_data_Ah 200
+
+execute if score @s terf_data_E matches ..335 store result storage terf:temp args.x float 0.002 run scoreboard players get @s terf_data_Af
+execute if score @s terf_data_E matches ..335 store result storage terf:temp args.y float 0.002 run scoreboard players get @s terf_data_Ag
+execute if score @s terf_data_E matches ..335 store result storage terf:temp args.z float 0.002 run scoreboard players get @s terf_data_Ah
+$execute as @e[type=minecraft:marker,tag=terf_related_$(machine_id),tag=terf_overload_beam] at @s run function terf:entity/machines/stfr/states/overload/plasma_particles/as with storage terf:temp args
+
+execute if score @s terf_data_E matches ..276 run function terf:entity/machines/stfr/states/overload/plasma_particles/summon
+execute if score @s terf_data_E matches ..276 run function terf:entity/machines/stfr/states/overload/plasma_particles/summon
+execute if score @s terf_data_E matches ..276 run function terf:entity/machines/stfr/states/overload/plasma_particles/summon
+$execute if score @s terf_data_E matches 335 run kill @e[tag=terf_overload_beam,tag=terf_related_$(machine_id)]
+
+execute if score @s terf_data_E matches 335 run scoreboard players set terminated terf_states 1000
+execute if score @s terf_data_E matches 335 run data modify storage terf:temp args set from entity @s data.terf
+execute if score @s terf_data_E matches 335 run data modify storage terf:temp args.max_duration set value 15
+execute if score @s terf_data_E matches 335 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/iterate
+$execute if score @s terf_data_E matches 339 as @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1] run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/tick
+$execute if score @s terf_data_E matches 440 run kill @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1]
+
 
 #process sounds for this state
 function terf:entity/machines/stfr/sound/humming_tick
 function terf:entity/machines/stfr/sound/system_noise_tick
 
-execute unless score @s terf_data_E matches 350.. run particle minecraft:soul_fire_flame ~ ~ ~ 0.4 0.4 0.4 0.06 100 force
-execute if score @s terf_data_E matches 350.. run particle minecraft:flame ~ ~ ~ 0.4 0.4 0.4 0.06 100 force
+execute unless score @s terf_data_E matches 335.. run particle minecraft:soul_fire_flame ~ ~ ~ 0.4 0.4 0.4 0.06 100 force
+execute if score @s terf_data_E matches 335.. run particle minecraft:flame ~ ~ ~ 0.4 0.4 0.4 0.06 100 force
 
 particle minecraft:large_smoke ~ ~ ~ 0.5 0.5 0.5 0.01 10 force
-execute if score @s terf_data_E matches 340 run particle minecraft:end_rod ~ ~ ~ 1 1 1 1 100 force
-execute unless score @s terf_data_E matches 340.. run particle flash{color:[1,1,1,1]} ~ ~ ~ 1 1 1 0 3 force
-execute if score @s terf_data_E matches 340.. run particle flash{color:[1,1,1,1]} ~ ~ ~ 0 0 0 0 1 force
+execute if score @s terf_data_E matches 335 run particle minecraft:end_rod ~ ~ ~ 1 1 1 1 100 force
+execute unless score @s terf_data_E matches 335.. run particle flash{color:[1,1,1,1]} ~ ~ ~ 1 1 1 0 3 force
+execute if score @s terf_data_E matches 335.. run particle flash{color:[1,1,1,1]} ~ ~ ~ 0 0 0 0 1 force
 playsound minecraft:entity.zombie_villager.converted master @a[distance=0..] ~ ~ ~ 5 2
 execute if score @s terf_data_M matches 25000000.. run scoreboard players remove @s terf_data_M 5216375
 execute if score @s terf_data_P matches 13467430.. run scoreboard players remove @s terf_data_P 13467430
@@ -52,12 +114,12 @@ execute if score @s terf_data_P matches 1347430.. run scoreboard players remove 
 
 execute if score @s terf_data_E matches 10 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.manual_restab.attempt_aux_shield',level:1,text:'{"text":"Attempting To Form Auxilary Containment Shield!"}'}
 
-execute if score @s terf_data_E matches 340 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.manual_restab.aux_shield_formed',level:1,text:'{"text":"Auxilary Containment Shield Formed! "},{"text":"Please Attempt The Following Tasks Before The Auxilary Shield Collapses:","color":"yellow"}'}
-execute if score @s terf_data_E matches 350 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.manual_restab.disconnect_panel',level:1,text:'{"text":"Current Objective: ","color":"dark_aqua"},"Disconnect Control Panel Via. Mainframe To Bypass Security Measures"'}
+execute if score @s terf_data_E matches 335 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.manual_restab.aux_shield_formed',level:1,text:'{"text":"Auxilary Containment Shield Formed! "},{"text":"Please Attempt The Following Tasks Before The Auxilary Shield Collapses:","color":"yellow"}'}
+execute if score @s terf_data_E matches 335 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.manual_restab.disconnect_panel',level:1,text:'{"text":"Current Objective: ","color":"dark_aqua"},"Disconnect Control Panel Via. Mainframe To Bypass Security Measures"'}
 
-execute if score @s terf_data_E matches 340 run particle minecraft:gust_emitter_large ~ ~ ~ 2 2 2 1 10
+execute if score @s terf_data_E matches 335 run particle minecraft:gust_emitter_large ~ ~ ~ 2 2 2 1 10
 
-$execute if score @s terf_data_E matches 351.. if score @s terf_data_Ab matches 0 unless entity @e[type=marker,tag=terf_linked_to_$(machine_id),tag=terf_stfr_controller] run function terf:entity/machines/stfr/states/manual_restabilization/go_to_next_stage
+$execute if score @s terf_data_E matches 337.. if score @s terf_data_Ab matches 0 unless entity @e[type=marker,tag=terf_linked_to_$(machine_id),tag=terf_stfr_controller] run function terf:entity/machines/stfr/states/manual_restabilization/go_to_next_stage
 
 execute if score @s terf_data_Ab matches 1.. run tag @s add terf_breaker_interested
 execute if score @s terf_data_Ab matches 1 if score NETratetimer terf_states >= NETrate terf_states if score temp terf_states matches 0.. as @s[tag=terf_breakers_connected] run function terf:entity/machines/stfr/states/manual_restabilization/go_to_next_stage
@@ -66,23 +128,26 @@ $execute if score @s terf_data_Ab matches 2 if entity @e[type=marker,tag=terf_li
 tag @s remove terf_stfr_panel_connected
 execute if data entity @s data.terf.mainframe_logistics.connected_machines.stfr_controller[0] run tag @s add terf_stfr_panel_connected
 
-execute if score @s terf_data_E matches 300.. as @s[tag=terf_stab6] run particle minecraft:poof ~ ~-10.5 ~ 0.7 0 0.7 0.03 10 force
-execute if score @s terf_data_E matches 300.. as @s[tag=terf_stab6] run particle minecraft:poof ~ ~-10.5 ~ 0.7 0 0.7 0.03 10 force
+execute if score @s terf_data_E matches ..335 run function terf:entity/machines/stfr/visuals/stabilizer/rotor_particles/flame
+execute if score @s terf_data_E matches ..335 run function terf:entity/machines/stfr/visuals/stabilizer/rotor_particles/offline_steam
 
-execute if score @s terf_data_E matches 300.. as @s[tag=terf_stab5] run particle minecraft:poof ~-9.5 ~ ~ 0 0.7 0.7 0.03 10 force
-execute if score @s terf_data_E matches 300.. as @s[tag=terf_stab5] run particle minecraft:poof ~-8.5 ~ ~ 0 0.7 0.7 0.03 10 force
+execute if score @s terf_data_E matches 335.. as @s[tag=terf_stab6] run particle minecraft:poof ~ ~-10.5 ~ 0.7 0 0.7 0.03 10 force
+execute if score @s terf_data_E matches 335.. as @s[tag=terf_stab6] run particle minecraft:poof ~ ~-10.5 ~ 0.7 0 0.7 0.03 10 force
 
-execute if score @s terf_data_E matches 300.. as @s[tag=terf_stab4] run particle minecraft:poof ~ ~ ~-9.5 0.7 0.7 0 0.03 10 force
-execute if score @s terf_data_E matches 300.. as @s[tag=terf_stab4] run particle minecraft:poof ~ ~ ~-7.5 0.7 0.7 0 0.03 10 force
+execute if score @s terf_data_E matches 335.. as @s[tag=terf_stab5] run particle minecraft:poof ~-9.5 ~ ~ 0 0.7 0.7 0.03 10 force
+execute if score @s terf_data_E matches 335.. as @s[tag=terf_stab5] run particle minecraft:poof ~-8.5 ~ ~ 0 0.7 0.7 0.03 10 force
 
-execute if score @s terf_data_E matches 300.. as @s[tag=terf_stab3] run particle minecraft:poof ~9.5 ~ ~ 0 0.7 0.7 0.03 10 force
-execute if score @s terf_data_E matches 300.. as @s[tag=terf_stab3] run particle minecraft:poof ~7.5 ~ ~ 0 0.7 0.7 0.03 10 force
+execute if score @s terf_data_E matches 335.. as @s[tag=terf_stab4] run particle minecraft:poof ~ ~ ~-9.5 0.7 0.7 0 0.03 10 force
+execute if score @s terf_data_E matches 335.. as @s[tag=terf_stab4] run particle minecraft:poof ~ ~ ~-7.5 0.7 0.7 0 0.03 10 force
 
-execute if score @s terf_data_E matches 300.. as @s[tag=terf_stab2] run particle minecraft:poof ~ ~ ~9.5 0.7 0.7 0 0.03 10 force
-execute if score @s terf_data_E matches 300.. as @s[tag=terf_stab2] run particle minecraft:poof ~ ~ ~7.5 0.7 0.7 0 0.03 10 force
+execute if score @s terf_data_E matches 335.. as @s[tag=terf_stab3] run particle minecraft:poof ~9.5 ~ ~ 0 0.7 0.7 0.03 10 force
+execute if score @s terf_data_E matches 335.. as @s[tag=terf_stab3] run particle minecraft:poof ~7.5 ~ ~ 0 0.7 0.7 0.03 10 force
 
-execute if score @s terf_data_E matches 300.. as @s[tag=terf_stab1] run particle minecraft:poof ~ ~10.5 ~ 0.7 0 0.7 0.03 10 force
-execute if score @s terf_data_E matches 300.. as @s[tag=terf_stab1] run particle minecraft:poof ~ ~8.5 ~ 0.7 0 0.7 0.03 10 force
+execute if score @s terf_data_E matches 335.. as @s[tag=terf_stab2] run particle minecraft:poof ~ ~ ~9.5 0.7 0.7 0 0.03 10 force
+execute if score @s terf_data_E matches 335.. as @s[tag=terf_stab2] run particle minecraft:poof ~ ~ ~7.5 0.7 0.7 0 0.03 10 force
+
+execute if score @s terf_data_E matches 335.. as @s[tag=terf_stab1] run particle minecraft:poof ~ ~10.5 ~ 0.7 0 0.7 0.03 10 force
+execute if score @s terf_data_E matches 335.. as @s[tag=terf_stab1] run particle minecraft:poof ~ ~8.5 ~ 0.7 0 0.7 0.03 10 force
 
 scoreboard players set stab_lenses terf_states 0
 execute unless block ~5 ~ ~ minecraft:amethyst_block run scoreboard players add stab_lenses terf_states 1
@@ -95,11 +160,11 @@ execute if score @s terf_data_Ab matches 3 if score stab_lenses terf_states matc
 
 data modify storage terf:temp args set value {arg1:"execute as @e[type=minecraft:text_display,tag=terf_related_",arg3:",tag=terf_overload_flare,limit=2,sort=random] run function terf:entity/machines/stfr/states/overload/rotate_text_display"}
 data modify storage terf:temp args.arg2 set from entity @s data.terf.machine_id
-execute if score @s terf_data_E matches ..340 run function datapipes_lib:require/with_args/3 with storage terf:temp args
+execute if score @s terf_data_E matches ..335 run function datapipes_lib:require/with_args/3 with storage terf:temp args
 
-execute if score @s terf_data_E matches 340 run data modify storage terf:temp args set value {arg1:"execute as @e[type=minecraft:text_display,tag=terf_related_",arg3:",tag=terf_overload_flare] run data merge entity @s {transformation:{left_rotation:[0.0f,0.0f,0.0f,0.0f]}}"}
-execute if score @s terf_data_E matches 340 run data modify storage terf:temp args.arg2 set from entity @s data.terf.machine_id
-execute if score @s terf_data_E matches 340 run function datapipes_lib:require/with_args/3 with storage terf:temp args
+execute if score @s terf_data_E matches 335 run data modify storage terf:temp args set value {arg1:"execute as @e[type=minecraft:text_display,tag=terf_related_",arg3:",tag=terf_overload_flare] run data merge entity @s {transformation:{left_rotation:[0.0f,0.0f,0.0f,0.0f]}}"}
+execute if score @s terf_data_E matches 335 run data modify storage terf:temp args.arg2 set from entity @s data.terf.machine_id
+execute if score @s terf_data_E matches 335 run function datapipes_lib:require/with_args/3 with storage terf:temp args
 
 data modify storage terf:temp args set value {arg1:"kill @e[tag=terf_overload_flare,tag=terf_related_",arg3:"]"}
 data modify storage terf:temp args.arg2 set from entity @s data.terf.machine_id
@@ -117,4 +182,3 @@ execute if score @s terf_data_E matches 3510 run function terf:entity/machines/s
 execute if score @s terf_data_E matches 3610 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'none',level:2,text:'{"text":"Time Until Auxilary Shield Failure: T-5s","color":"yellow"}'}
 
 execute if score @s terf_data_E matches 3710.. run function terf:entity/machines/stfr/states/manual_restabilization/failure
-
