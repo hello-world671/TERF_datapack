@@ -28,9 +28,9 @@ function terf:entity/machines/stfr/sound/humming_tick
 function terf:entity/machines/stfr/sound/system_noise_tick
 playsound minecraft:block.beacon.power_select master @a[distance=0..] ~ ~ ~ 10000 2
 
-particle minecraft:soul_fire_flame ~ ~ ~ 0.4 0.4 0.4 0.06 100 force
-execute if score mssr terf_states matches 0 run particle minecraft:large_smoke ~ ~ ~ 0.4 0.4 0.4 1 100 force
-particle minecraft:large_smoke ~ ~ ~ 0.5 0.5 0.5 0.01 10 force
+execute if entity @s[tag=!terf_shutdown_fail_stasis] run particle minecraft:soul_fire_flame ~ ~ ~ 0.4 0.4 0.4 0.06 100 force
+execute if score mssr terf_states matches 0 if entity @s[tag=!terf_shutdown_fail_stasis] run particle minecraft:large_smoke ~ ~ ~ 0.4 0.4 0.4 1 100 force
+execute if entity @s[tag=!terf_shutdown_fail_stasis] run particle minecraft:large_smoke ~ ~ ~ 0.5 0.5 0.5 0.01 10 force
 particle flash{color:[1,1,1,1]} ~ ~ ~ 1 1 1 0 1 force
 playsound minecraft:entity.zombie_villager.converted master @a[distance=0..] ~ ~ ~ 5 2
 execute if score @s terf_data_M matches 25000000.. run scoreboard players remove @s terf_data_M 5216375
