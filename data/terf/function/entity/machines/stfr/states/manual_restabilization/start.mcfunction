@@ -20,3 +20,5 @@ scoreboard players set @s terf_data_Ab 0
 tag @s remove terf_breakers_connected
 
 execute as @s[tag=terf_speakerconnected] run playsound terf:alarms.beep2 ambient @a[distance=0..] ~ ~ ~ 1 1
+
+execute at @s run function terf:entity/machines/stfr/states/manual_restabilization/axuillery_shield_formation/start

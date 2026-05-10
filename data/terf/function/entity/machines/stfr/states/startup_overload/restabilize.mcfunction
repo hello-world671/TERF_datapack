@@ -12,6 +12,7 @@ playsound terf:charge_up.heavy_shutdown ambient @a[distance=0..] ~ ~ ~ 15 1
 playsound terf:charge_up.heavy_shutdown ambient @a[distance=0..] ~ ~ ~ 15 1
 
 scoreboard players set @s terf_data_A 3
+scoreboard players set @s terf_data_B 5000
 
 scoreboard objectives remove terf_shake_magnitude
 scoreboard objectives remove terf_shake_frequency

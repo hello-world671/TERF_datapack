@@ -22,15 +22,6 @@ playsound minecraft:block.beacon.activate ambient @a[distance=0..] ~ ~ ~ 5 2
 playsound minecraft:block.beacon.activate ambient @a[distance=0..] ~ ~ ~ 5 2
 playsound minecraft:block.beacon.activate ambient @a[distance=0..] ~ ~ ~ 5 2
 
-playsound terf:music.bgmusic2 ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
-playsound terf:music.bgmusic2 ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
-playsound terf:music.bgmusic2 ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
-playsound terf:music.bgmusic2 ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
-playsound terf:music.bgmusic2 ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
-playsound terf:music.bgmusic2 ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
-playsound terf:music.bgmusic2 ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
-playsound terf:music.bgmusic2 ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
-
 playsound terf:music.hacknet_music_end ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
 playsound terf:music.hacknet_music_end ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
 playsound terf:music.hacknet_music_end ui @a[distance=0..,tag=!terf_disable_music] ~ ~ ~ 8 1
@@ -38,6 +29,7 @@ playsound terf:music.hacknet_music_end ui @a[distance=0..,tag=!terf_disable_musi
 stopsound @a * terf:music.hacknet_ost_panic_track
 stopsound @a[distance=0..] * terf:music.hacknet_ost_paki_trak
 stopsound @a * terf:music.underload_music
+stopsound @a * terf:music.carpenter_brut_run_sally_run
 
 function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.stasis.start',level:1,text:'{"text":"Stasis Laser Activated!"}'}
 
@@ -51,5 +43,8 @@ data modify storage terf:temp args set value {arg1:"kill @e[tag=terf_overload_fl
 data modify storage terf:temp args.arg2 set from entity @s data.terf.machine_id
 function datapipes_lib:require/with_args/3 with storage terf:temp args
 
+kill @e[type=text_display,tag=terf_shutdown_failure_glow,distance=..1] 
+execute if score @s terf_data_A matches 17 run tag @s add terf_shutdown_fail_stasis
+execute if score @s terf_data_B matches 10001.. run scoreboard players set @s terf_data_B 10000
 scoreboard players set @s terf_data_E 0
 scoreboard players set @s terf_data_A 10
