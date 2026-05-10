@@ -32,6 +32,7 @@ particle minecraft:end_rod ~ ~ ~ 1 1 1 1 1000 force
 particle minecraft:firework ~ ~ ~ 1 1 1 1 1000 force
 playsound terf:explosion.shieldboom ambient @a[distance=0..] ~ ~ ~ 24 1
 
+tag @s remove terf_shutdown_fail_stasis
 scoreboard players set @s terf_data_A 5
 scoreboard players set @s terf_data_E 90
 
