@@ -33,6 +33,7 @@ kill @e[type=minecraft:end_crystal,distance=..3]
 scoreboard players set @s terf_data_A 3
 
 tag @s remove terf_manual_stabilization_failed
+tag @s remove terf_stfr_opshield
 
 scoreboard objectives remove terf_shake_magnitude
 scoreboard objectives remove terf_shake_frequency
