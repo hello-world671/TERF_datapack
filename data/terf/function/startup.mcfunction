@@ -581,7 +581,7 @@ data modify storage terf:constants mb_setup_functions[{checks:"if block ~ ~ ~ cr
 data modify storage terf:constants mb_setup_functions[{checks:"if block ~ ~ ~ lapis_block"}].function set value 'function terf:entity/machines/large_fluid_solidifier/setup'
 data modify storage terf:constants mb_setup_functions[{checks:"if block ~ ~ ~ lodestone if block ^ ^1 ^ granite_slab[type=double]"}].function set value 'function terf:entity/machines/magma_drill/setup'
 data modify storage terf:constants mb_setup_functions[{checks:"if block ~ ~ ~ loom if block ^ ^-1 ^ waxed_cut_copper"}].function set value 'function terf:entity/machines/opencore_control_panel/setup'
-data modify storage terf:constants mb_setup_functions[{checks:"if block ~ ~ ~ loom"}].function set value 'function terf:entity/machines/stfr_control_panel/setup'
+data modify storage terf:constants mb_setup_functions[{checks:"if block ~ ~ ~ loom unless block ^ ^ ^1 waxed_cut_copper"}].function set value 'function terf:entity/machines/stfr_control_panel/setup'
 data modify storage terf:constants mb_setup_functions[{checks:"if block ~ ~ ~ smooth_stone"}].function set value 'function terf:entity/machines/turbine_large/setup'
 data modify storage terf:constants mb_setup_functions[{checks:"if block ~ ~ ~ waxed_chiseled_copper"}].function set value 'function terf:entity/machines/turbine_medium/setup'
 data modify storage terf:constants mb_setup_functions[{checks:"if block ~ ~ ~ waxed_oxidized_copper_bulb"}].function set value 'function terf:entity/machines/warp_core_panel/setup'
