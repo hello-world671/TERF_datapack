@@ -99,62 +99,62 @@ execute if score @s terf_data_E matches 335 run function terf:entity/machines/st
 $execute if score @s terf_data_E matches 339 as @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1] run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/tick
 $execute if score @s terf_data_E matches 440 run kill @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1]
 
-execute if score @s terf_data_E matches 1288 run scoreboard players set terminated terf_states 200
-execute if score @s terf_data_E matches 1288 run data modify storage terf:temp args set from entity @s data.terf
-execute if score @s terf_data_E matches 1288 run data modify storage terf:temp args.max_duration set value 10
-execute if score @s terf_data_E matches 1288 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/iterate
-$execute if score @s terf_data_E matches 1292 as @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1] run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/tick
-$execute if score @s terf_data_E matches 1330 run kill @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1]
-execute if score @s terf_data_E matches 1288 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
-execute if score @s terf_data_E matches 1288 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
-execute if score @s terf_data_E matches 1288 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
+execute if score @s terf_data_E matches 1288 unless score @s terf_data_Ab matches 5 run scoreboard players set terminated terf_states 200
+execute if score @s terf_data_E matches 1288 unless score @s terf_data_Ab matches 5 run data modify storage terf:temp args set from entity @s data.terf
+execute if score @s terf_data_E matches 1288 unless score @s terf_data_Ab matches 5 run data modify storage terf:temp args.max_duration set value 10
+execute if score @s terf_data_E matches 1288 unless score @s terf_data_Ab matches 5 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/iterate
+$execute if score @s terf_data_E matches 1292 unless score @s terf_data_Ab matches 5 as @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1] run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/tick
+$execute if score @s terf_data_E matches 1330 unless score @s terf_data_Ab matches 5 run kill @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1]
+execute if score @s terf_data_E matches 1288 unless score @s terf_data_Ab matches 5 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
+execute if score @s terf_data_E matches 1288 unless score @s terf_data_Ab matches 5 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
+execute if score @s terf_data_E matches 1288 unless score @s terf_data_Ab matches 5 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
 
 
-execute if score @s terf_data_E matches 1947 run scoreboard players set terminated terf_states 200
-execute if score @s terf_data_E matches 1947 run data modify storage terf:temp args set from entity @s data.terf
-execute if score @s terf_data_E matches 1947 run data modify storage terf:temp args.max_duration set value 10
-execute if score @s terf_data_E matches 1947 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/iterate
-$execute if score @s terf_data_E matches 1951 as @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1] run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/tick
-$execute if score @s terf_data_E matches 1980 run kill @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1]
-execute if score @s terf_data_E matches 1947 run tag @s remove terf_stfr_opshield
-execute if score @s terf_data_E matches 1947..2533 run scoreboard players set @s terf_data_B 10000
-execute if score @s terf_data_E matches 1947 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
-execute if score @s terf_data_E matches 1947 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
-execute if score @s terf_data_E matches 1947 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
+execute if score @s terf_data_E matches 1947 unless score @s terf_data_Ab matches 5 run scoreboard players set terminated terf_states 200
+execute if score @s terf_data_E matches 1947 unless score @s terf_data_Ab matches 5 run data modify storage terf:temp args set from entity @s data.terf
+execute if score @s terf_data_E matches 1947 unless score @s terf_data_Ab matches 5 run data modify storage terf:temp args.max_duration set value 10
+execute if score @s terf_data_E matches 1947 unless score @s terf_data_Ab matches 5 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/iterate
+$execute if score @s terf_data_E matches 1951 unless score @s terf_data_Ab matches 5 as @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1] run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/tick
+$execute if score @s terf_data_E matches 1980 unless score @s terf_data_Ab matches 5 run kill @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1]
+execute if score @s terf_data_E matches 1947 unless score @s terf_data_Ab matches 5 run tag @s remove terf_stfr_opshield
+execute if score @s terf_data_E matches 1947..2533 unless score @s terf_data_Ab matches 5 run scoreboard players set @s terf_data_B 10000
+execute if score @s terf_data_E matches 1947 unless score @s terf_data_Ab matches 5 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
+execute if score @s terf_data_E matches 1947 unless score @s terf_data_Ab matches 5 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
+execute if score @s terf_data_E matches 1947 unless score @s terf_data_Ab matches 5 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
 
 
-execute if score @s terf_data_E matches 2533 run scoreboard players set terminated terf_states 200
-execute if score @s terf_data_E matches 2533 run data modify storage terf:temp args set from entity @s data.terf
-execute if score @s terf_data_E matches 2533 run data modify storage terf:temp args.max_duration set value 10
-execute if score @s terf_data_E matches 2533 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/iterate
-$execute if score @s terf_data_E matches 2537 as @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1] run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/tick
-$execute if score @s terf_data_E matches 2570 run kill @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1]
-execute if score @s terf_data_E matches 2533..3047 run scoreboard players set @s terf_data_B 8500
-execute if score @s terf_data_E matches 2533 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
-execute if score @s terf_data_E matches 2533 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
-execute if score @s terf_data_E matches 2533 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
+execute if score @s terf_data_E matches 2533 unless score @s terf_data_Ab matches 5 run scoreboard players set terminated terf_states 200
+execute if score @s terf_data_E matches 2533 unless score @s terf_data_Ab matches 5 run data modify storage terf:temp args set from entity @s data.terf
+execute if score @s terf_data_E matches 2533 unless score @s terf_data_Ab matches 5 run data modify storage terf:temp args.max_duration set value 10
+execute if score @s terf_data_E matches 2533 unless score @s terf_data_Ab matches 5 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/iterate
+$execute if score @s terf_data_E matches 2537 unless score @s terf_data_Ab matches 5 as @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1] run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/tick
+$execute if score @s terf_data_E matches 2570 unless score @s terf_data_Ab matches 5 run kill @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1]
+execute if score @s terf_data_E matches 2533..3047 unless score @s terf_data_Ab matches 5 run scoreboard players set @s terf_data_B 8500
+execute if score @s terf_data_E matches 2533 unless score @s terf_data_Ab matches 5 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
+execute if score @s terf_data_E matches 2533 unless score @s terf_data_Ab matches 5 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
+execute if score @s terf_data_E matches 2533 unless score @s terf_data_Ab matches 5 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
 
-execute if score @s terf_data_E matches 3047 run scoreboard players set terminated terf_states 200
-execute if score @s terf_data_E matches 3047 run data modify storage terf:temp args set from entity @s data.terf
-execute if score @s terf_data_E matches 3047 run data modify storage terf:temp args.max_duration set value 10
-execute if score @s terf_data_E matches 3047 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/iterate
-$execute if score @s terf_data_E matches 3051 as @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1] run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/tick
-$execute if score @s terf_data_E matches 3080 run kill @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1]
-execute if score @s terf_data_E matches 3047..3377 run scoreboard players set @s terf_data_B 4900
-execute if score @s terf_data_E matches 3047 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
-execute if score @s terf_data_E matches 3047 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
-execute if score @s terf_data_E matches 3047 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
+execute if score @s terf_data_E matches 3047 unless score @s terf_data_Ab matches 5 run scoreboard players set terminated terf_states 200
+execute if score @s terf_data_E matches 3047 unless score @s terf_data_Ab matches 5 run data modify storage terf:temp args set from entity @s data.terf
+execute if score @s terf_data_E matches 3047 unless score @s terf_data_Ab matches 5 run data modify storage terf:temp args.max_duration set value 10
+execute if score @s terf_data_E matches 3047 unless score @s terf_data_Ab matches 5 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/iterate
+$execute if score @s terf_data_E matches 3051 unless score @s terf_data_Ab matches 5 as @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1] run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/tick
+$execute if score @s terf_data_E matches 3080 unless score @s terf_data_Ab matches 5 run kill @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1]
+execute if score @s terf_data_E matches 3047..3377 unless score @s terf_data_Ab matches 5 run scoreboard players set @s terf_data_B 4900
+execute if score @s terf_data_E matches 3047 unless score @s terf_data_Ab matches 5 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
+execute if score @s terf_data_E matches 3047 unless score @s terf_data_Ab matches 5 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
+execute if score @s terf_data_E matches 3047 unless score @s terf_data_Ab matches 5 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
 
-execute if score @s terf_data_E matches 3376 run scoreboard players set terminated terf_states 200
-execute if score @s terf_data_E matches 3376 run data modify storage terf:temp args set from entity @s data.terf
-execute if score @s terf_data_E matches 3376 run data modify storage terf:temp args.max_duration set value 10
-execute if score @s terf_data_E matches 3376 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/iterate
-$execute if score @s terf_data_E matches 3380 as @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1] run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/tick
-$execute if score @s terf_data_E matches 3420 run kill @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1]
-execute if score @s terf_data_E matches 3376.. run scoreboard players set @s terf_data_B 2500
-execute if score @s terf_data_E matches 3376 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
-execute if score @s terf_data_E matches 3376 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
-execute if score @s terf_data_E matches 3376 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
+execute if score @s terf_data_E matches 3376 unless score @s terf_data_Ab matches 5 run scoreboard players set terminated terf_states 200
+execute if score @s terf_data_E matches 3376 unless score @s terf_data_Ab matches 5 run data modify storage terf:temp args set from entity @s data.terf
+execute if score @s terf_data_E matches 3376 unless score @s terf_data_Ab matches 5 run data modify storage terf:temp args.max_duration set value 10
+execute if score @s terf_data_E matches 3376 unless score @s terf_data_Ab matches 5 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/iterate
+$execute if score @s terf_data_E matches 3380 unless score @s terf_data_Ab matches 5 as @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1] run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/tick
+$execute if score @s terf_data_E matches 3420 unless score @s terf_data_Ab matches 5 run kill @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1]
+execute if score @s terf_data_E matches 3376.. unless score @s terf_data_Ab matches 5 run scoreboard players set @s terf_data_B 2500
+execute if score @s terf_data_E matches 3376 unless score @s terf_data_Ab matches 5 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
+execute if score @s terf_data_E matches 3376 unless score @s terf_data_Ab matches 5 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
+execute if score @s terf_data_E matches 3376 unless score @s terf_data_Ab matches 5 run playsound terf:explosion.missile block @a[distance=..50] ~ ~ ~ 4 2
 
 #process sounds for this state
 function terf:entity/machines/stfr/sound/humming_tick
@@ -234,6 +234,7 @@ execute if score @s[tag=terf_key_on,tag=terf_sstb_on] terf_data_Ab matches 4 if 
 
 execute if score @s terf_data_Ab matches 5 run execute if score @s terf_data_B matches ..10000 run scoreboard players add @s terf_data_B 900
 execute if score @s terf_data_Ab matches 5 if score @s terf_data_U matches 600.. run function terf:entity/machines/stfr/states/manual_restabilization/restabilize
+$execute if score @s terf_data_Ab matches 5 run kill @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1]
 
 execute if score @s terf_data_E matches 1300 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.manual_restab.fail_in_2m',level:2,text:'{"text":"Time Until Auxilary Shield Failure: T-2 minutes","color":"yellow"}'}
 execute if score @s terf_data_E matches 2510 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.manual_restab.fail_in_60s',level:2,text:'{"text":"Time Until Auxilary Shield Failure: T-60s","color":"yellow"}'}
