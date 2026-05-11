@@ -617,6 +617,7 @@ data modify storage terf:constants mb_setup_functions[{checks:"if block ~ ~ ~ cr
 data modify storage terf:constants mb_setup_functions[{checks:"if block ~ ~ ~ polished_blackstone_stairs"}].function set value 'function terf:entity/machines/capsule_interface/setup with entity @s data.terf'
 data modify storage terf:constants mb_setup_functions[{checks:"if block ~ ~ ~ brown_glazed_terracotta if block ~ ~1 ~ iron_bars"}].function set value 'function terf:entity/machines/deuterium_concentrator/setup'
 data modify storage terf:constants mb_setup_functions[{checks:"if block ~ ~ ~ redstone_block"}].function set value 'function terf:entity/machines/solar_panel/setup'
+data modify storage terf:constants mb_setup_functions[{checks:"if block ~ ~ ~ lectern"}].function set value 'function terf:entity/machines/redstone_sequencer/setup'
 
 #==================================================| Set Constants |==================================================
 function terf:block_colors

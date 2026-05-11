@@ -30,7 +30,7 @@ execute if score @s terf_data_M matches ..21999 run scoreboard players set @s te
 
 execute if score @s terf_data_E matches 445 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.shutdown.stopping_shield',level:0,text:'{"text":"Shutting Down Reactor Shield..."}'}
 execute if score @s terf_data_E matches 460 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.shutdown.breakers',level:0,text:'{"text":"Disconnecting System Breakers..."}'}
-execute if score @s terf_data_E matches 465 run playsound terf:switch ambient @a[distance=0..] 121.59 -22.44 62.13 1000
+execute if score @s terf_data_E matches 465 run playsound terf:switch ambient @a[distance=0..] 121.59 -22.44 62.13 5
 execute if score @s[tag=terf_stab_pistons_breach] terf_data_E matches 470 run return run function terf:entity/machines/stfr/states/shutdown_failure/start with entity @s data.terf
 execute if score @s terf_data_E matches 470 run function terf:entity/machines/stfr/states/shutdown/deactivate
 execute if score @s terf_data_E matches 470..870 run particle minecraft:end_rod ~ ~ ~ 1.5 1.5 1.5 0 1 force
