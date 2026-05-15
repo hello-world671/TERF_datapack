@@ -144,7 +144,7 @@ execute if score @s terf_data_E matches 2250 run function terf:entity/machines/s
 execute if score @s terf_data_E matches 2550 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.shut_fail.fusion',level:2,text:'{"text":"Fusion Of A New Element Detected! Reconfiguring Systems... Details: ","color":"red"},{"text":"Details: p+Num:8","color":"gold"}'}
 execute if score @s terf_data_E matches 2550 run scoreboard players set @a[distance=..80] terf_shake_frequency 300
 #EMP from the ridicolous amount of beta radiation oxygen fusion releases 
-execute if score @s terf_data_E matches 2250.. as @e[type=marker,distance=..128] if score @s datapipes_lib_power_storage matches 0.. run scoreboard players set @s datapipes_lib_power_storage 0
+execute if score @s terf_data_E matches 2250.. as @e[type=marker,tag=terf_lamp_controller,distance=..256] if score @s datapipes_lib_power_storage matches 0.. run scoreboard players set @s datapipes_lib_power_storage 0
 execute if score @s terf_data_E matches 2850 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.shut_fail.setpoint',level:2,text:'{"text":"Automatic Shield Permeability Setpoint Unreachable Before A Containment Loss Event Occurs! ","color":"red"},{"text":"Awaiting Intervention...","color":"gold"}'}
 
 execute if score @s terf_data_E matches 3150 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.shut_fail.temp_fail',level:1,text:'{"text":"Unable To Monitor Reactor Core Temperature! Switching To Approximation Via. Photon Spectrometers.","color":"red"}'}
