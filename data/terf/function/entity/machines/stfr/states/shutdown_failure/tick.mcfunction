@@ -88,11 +88,13 @@ execute if score @s terf_data_E matches 300 run scoreboard players set @a[distan
 execute if score @s terf_data_E matches 300 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.shut_fail.projection',level:1,text:'{"text":"Increasing Shield Projection To Prevent Collapse From Low Internal Pressure Forces!"}'}
 execute if score @s terf_data_E matches 600 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.shut_fail.ineffective',level:2,text:'{"text":"Automatic Shutdown Ineffective! ","color":"red"},{"text":"Manual Intervention Required.","color":"gold"}'}
 
+#disable fuel capsule anti-dumbass system
+execute if score @s terf_data_E matches 750 run tag @s add terf_fcad_override
 execute if score @s terf_data_E matches 750 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.shut_fail.restab_options',level:1,text:'{"text":"Re-stabilization Options Found:","color":"gold"}'}
 execute if score @s terf_data_E matches 751 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'none',level:0,text:'{"text":"- Stasis Laser Activation"}'}
 execute if score @s terf_data_E matches 752 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'none',level:0,text:'{"text":"- Replace All Fuel Capsules With Capsules Containing"}'}
 execute if score @s terf_data_E matches 753 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'none',level:0,text:'{"text":"Water For A Full Core Content Purge"}'}
- 
+
 #open stabilizer maintenance trapdoors
 execute if score @s terf_data_E matches 760 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_s with entity @s data.terf
 execute if score @s terf_data_E matches 770 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_e with entity @s data.terf

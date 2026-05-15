@@ -26,7 +26,7 @@ $execute unless block ^ ^.1 ^-.7 waxed_lightning_rod if score locked terf_states
 execute unless block ^ ^.1 ^-.7 waxed_lightning_rod run function terf:entity/receptacle/start_sliding_out with entity @s data.terf
 execute if block ^ ^.1 ^-.7 waxed_lightning_rod if score locked terf_states matches 0 run function terf:entity/receptacle/start_sliding_out with entity @s data.terf
 
-#only shutdown the stabilizer if every capsule is properly inserted and locked and the breakers are on
-$execute if entity @n[type=marker,tag=terf_stfr,tag=terf_machineid_$(machine_id),tag=terf_breakers_activated] unless function terf:entity/machines/stfr/receptacles/all_receptacles_locked run return fail
+#Fuel Capsule Anti-Dumbass or FCAD system: only shutdown the stabilizer if every capsule is properly inserted and locked and the breakers are on
+$execute if entity @n[type=marker,tag=terf_stfr,tag=terf_machineid_$(machine_id),tag=terf_breakers_activated,tag=!terf_fcad_override] unless function terf:entity/machines/stfr/receptacles/all_receptacles_locked run return fail
 
 $execute if score locked terf_states matches 1 if block ^ ^.1 ^-.7 waxed_lightning_rod run execute at @n[type=marker,tag=terf_stfr,tag=terf_machineid_$(machine_id)] run function terf:entity/machines/stfr/receptacles/shutdown_stabilizer with entity @s data.terf
