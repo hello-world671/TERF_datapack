@@ -3,8 +3,8 @@ function terf:autokick
 data modify storage terf:temp displays.group_core[0].messages[3][1][].color set value "white"
 data modify storage terf:temp displays.group_core[0].messages[3][1][-1].color set value "red"
 data modify storage terf:temp displays.group_core[0].messages[3][1][-2].color set value "red"
-execute if score @s terf_data_E matches 1280 run data modify storage terf:temp displays.group_core[0].messages[3][1][-3].color set value "red"
-execute if score @s terf_data_E matches 1280 run data modify storage terf:temp displays.group_core[0].messages[3][1][-4].color set value "red"
+execute if score @s terf_data_E matches 1280.. run data modify storage terf:temp displays.group_core[0].messages[3][1][-3].color set value "red"
+execute if score @s terf_data_E matches 1320.. run data modify storage terf:temp displays.group_core[0].messages[3][1][-4].color set value "red"
 
 scoreboard players add @s terf_data_V 100
 scoreboard players add @s terf_data_E 1
