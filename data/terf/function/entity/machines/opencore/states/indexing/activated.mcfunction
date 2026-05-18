@@ -14,3 +14,7 @@ function datapipes_lib:require/with_args/3 with storage terf:temp args
 function terf:entity/machines/opencore/broadcast {level:0,text:'{"text":"Material Locked!","color":"aqua"}'}
 
 tag @s add terf_oc_loading
+tag @s add terf_oc_loading_failsafe
+
+# sets indexed state as true
+scoreboard players set @s terf_data_J 1
