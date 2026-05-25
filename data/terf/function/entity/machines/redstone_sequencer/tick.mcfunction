@@ -1,6 +1,5 @@
 execute if block ^ ^ ^-1 redstone_lamp[lit=false] run return run tag @s remove terf_powered
-data modify entity @s[tag=!terf_powered] data.terf.instruction_stream set from entity @s data.terf.instructions
-tag @s add terf_powered
+execute if entity @s[tag=!terf_powered] run function terf:entity/machines/redstone_sequencer/activate
 
 #wait timer
 execute if score @s terf_data_A matches 2.. run return run scoreboard players remove @s terf_data_A 1
