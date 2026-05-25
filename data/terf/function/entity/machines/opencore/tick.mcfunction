@@ -7,6 +7,7 @@
 #terf_data_G = core temp
 #terf_data_H = distance between top and bottom coils
 #terf_data_I = core damage
+#terf_data_J = material index check (for redstone probe)
 
 tag @s add terf_broadcaston
 tag @s remove terf_indestructible
@@ -58,13 +59,15 @@ execute unless score @s terf_connected_mainframe_buffer = @s terf_connected_main
 scoreboard players reset @s terf_connected_mainframe_buffer
 
 #remove loading tag
-tag @s remove terf_oc_loading
+execute if entity @s[tag=!terf_oc_loading_failsafe] run tag @s remove terf_oc_loading
+tag @s remove terf_oc_loading_failsafe
 
 #redstone probe integration
 scoreboard players operation ui_state terf_states = @s terf_data_A
 scoreboard players operation reactor_state terf_states = @s terf_data_D
 scoreboard players operation timer terf_states = @s terf_data_F
 scoreboard players operation temperature terf_states = @s terf_data_G
+scoreboard players operation is_indexed terf_states = @s terf_data_J
 
 #redstone probe integration
 scoreboard players operation calc terf_states = @s terf_connected_mainframe

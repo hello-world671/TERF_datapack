@@ -1,6 +1,9 @@
 scoreboard players set @s terf_data_E 1
 scoreboard players set @s terf_data_D 3
 scoreboard players set @s terf_data_I 0
+# sets indexed state as false
+scoreboard players set @s terf_data_J 0
+
 playsound terf:opencore.voice_startup master @a[distance=0..] ~ ~ ~ 6 1
 playsound terf:alarms.beep master @a[distance=0..] ~ ~ ~ 1 0.7
 
