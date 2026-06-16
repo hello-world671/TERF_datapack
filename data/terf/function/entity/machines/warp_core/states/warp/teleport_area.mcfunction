@@ -30,7 +30,7 @@ $clone ~ ~ ~ ~$(size_x) ~$(size_y) ~$(size_z) to $(dimension) $(target_x) $(targ
 $execute align xyz positioned ~-.001 ~-.001 ~-.001 as @e[type=!player,dx=$(size_x),dy=$(size_y),dz=$(size_z),tag=!terf_unwarpable] run kill @s
 
 #run afterwarp functions
-$execute align xyz in $(dimension) positioned $(target_x) $(target_y) $(target_z) as @e[dx=$(size_x),dy=$(size_y),dz=$(size_z),tag=!terf_unwarpable] run function terf:entity/machines/warp_core/after_warp with entity @s data.terf
+$execute align xyz in $(dimension) positioned $(target_x) $(target_y) $(target_z) as @e[dx=$(size_x),dy=$(size_y),dz=$(size_z),tag=!terf_unwarpable] at @s run function terf:entity/machines/warp_core/after_warp with entity @s data.terf
 
 #give advancement
 $execute align xyz in $(dimension) positioned $(target_x) $(target_y) $(target_z) as @a[dx=$(size_x),dy=$(size_y),dz=$(size_z),tag=!terf_unwarpable] run advancement grant @s only terf:warp_core

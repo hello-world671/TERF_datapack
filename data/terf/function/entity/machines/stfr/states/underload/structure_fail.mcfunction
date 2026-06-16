@@ -18,7 +18,7 @@ execute as @e[type=minecraft:falling_block,distance=..20] run data modify entity
 
 function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.underload.structural_failure',level:4,text:'{"text":"COMPLETE REACTOR STRUCTURAL FAILURE DETECTED! A HIGH ENERGY EXPLOSION WILL OCCOUR IN ~T-60 SECONDS! SEEK SHELTER IMMEDIATELY!","color":"red"}'}
 
-function terf:entity/machines/stfr/case_explosion
+function terf:entity/machines/stfr/actions/case/explosion
 
 summon minecraft:creeper ~ ~ ~ {CustomName:"an electromagnetic shockwave",CustomNameVisible:1,Silent:1,Invulnerable:1,ExplosionRadius:20,Fuse:0,ignited:1,ActiveEffects:[{Id:14,Amplifier:0,Duration:2147483647,ShowParticles:0b}]}
 summon minecraft:creeper ~ ~ ~ {CustomName:"an electromagnetic shockwave",CustomNameVisible:1,Silent:1,Invulnerable:1,ExplosionRadius:20,Fuse:0,ignited:1,ActiveEffects:[{Id:14,Amplifier:0,Duration:2147483647,ShowParticles:0b}]}

@@ -1,4 +1,4 @@
-function terf:entity/machines/stfr/stabilizers_on
+function terf:entity/machines/stfr/actions/stabilizer/turn_on/all
 stopsound @a
 stopsound @a[distance=..128] * terf:music.alex_giudici_reconstructing_more_science_remix_v2
 #nahHhhhhhhhhh

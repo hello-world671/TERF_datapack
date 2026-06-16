@@ -10,6 +10,6 @@ tag @s add terf_stab4_breach
 tag @s add terf_stab5_breach
 tag @s add terf_stab6_breach
 tag @s add terf_stab_pistons_breach
-function terf:entity/machines/stfr/stabilizers_off
+function terf:entity/machines/stfr/actions/stabilizer/turn_off/all
 
 scoreboard players set @s terf_data_E 0

@@ -3,7 +3,7 @@ tag @s add terf_core_online
 playsound terf:music.carpenter_brut_run_sally_run master @a[distance=0..] ~ ~ ~ 10
 execute as @a[distance=..256,tag=terf_music_crediting] run function terf:entity/player/title_music {music:"Carpenter Brut: Run Sally, Run"}
 
-function terf:entity/machines/stfr/stabilizers_on
+function terf:entity/machines/stfr/actions/stabilizer/turn_on/all
 
 tag @s add terf_stfr_opshield
 function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.shut_fail.start',level:1,text:'{"text":"Cannot Continue Fusion Reactor Shutdown Sequence: ","color":"red"},{"text":"Stabilizer Shutdown Failure!","color":"gold"}'}

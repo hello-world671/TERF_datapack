@@ -8,7 +8,7 @@ scoreboard players remove temp terf_states 500000
 execute if score temp terf_states matches ..-1 run scoreboard players set temp terf_states 0
 
 execute store result entity 0010eff0-0010-effa-0010-cd370010c94e Rotation[0] float 0.000001 run scoreboard players get temp terf_states
-execute as 0010eff0-0010-effa-0010-cd370010c94e rotated as @s in terf:intermediary_technical_storage_dimension positioned 0. 0 0. run tp @s ^ ^ ^1
+execute as 0010eff0-0010-effa-0010-cd370010c94e rotated as @s rotated ~ 0 in terf:intermediary_technical_storage_dimension positioned 0. 0 0. run tp @s ^ ^ ^1
 
 #return with the accuracy of 1000000 in barns
 return run data get entity 0010eff0-0010-effa-0010-cd370010c94e Pos[0] -200000

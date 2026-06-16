@@ -1,5 +1,5 @@
 #turn on stabilizers
-function terf:entity/machines/stfr/stabilizers_on
+function terf:entity/machines/stfr/actions/stabilizer/turn_on/all
 tag @s add terf_stab1
 tag @s add terf_stab2
 tag @s add terf_stab3

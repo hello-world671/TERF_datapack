@@ -31,8 +31,8 @@ execute if score @s terf_data_A matches 8 if score stabs_fixed terf_states match
 execute if score @s terf_data_A matches 17 if score @s terf_data_Ab matches -1 if score @s terf_data_E matches ..4049 as @s[tag=terf_key_on,tag=terf_sstb_on] if function terf:entity/machines/stfr/states/shutdown_failure/has_only_water_capsules run function terf:entity/machines/stfr/states/shutdown_failure/start_restabilization with entity @s data.terf
 
 execute unless score @s[tag=!terf_power_surge_pressed,tag=terf_key_on] terf_data_U matches 1.. if score @s terf_data_Ad matches 950000.. if score @s terf_data_A matches 3 positioned ^ ^-1 ^1 if predicate terf:is_block_active run function terf:entity/machines/stfr/emergency_controls/power_surge/prime
-execute if score @s[tag=!terf_power_surge_pressed,tag=!terf_stfr_surge_unabortable] terf_data_U matches 2..599 positioned ^ ^-1 ^1 if predicate terf:is_block_active run function terf:entity/machines/stfr/emergency_controls/power_surge/abort_manual
-execute if score @s[tag=!terf_key_on,tag=!terf_stfr_surge_unabortable] terf_data_U matches 2..599 run function terf:entity/machines/stfr/emergency_controls/power_surge/abort_manual
+execute if score @s[tag=!terf_power_surge_pressed,tag=!terf_stfr_surge_unabortable] terf_data_U matches 2..299 positioned ^ ^-1 ^1 if predicate terf:is_block_active run function terf:entity/machines/stfr/emergency_controls/power_surge/abort_manual
+execute if score @s[tag=!terf_key_on,tag=!terf_stfr_surge_unabortable] terf_data_U matches 2..299 run function terf:entity/machines/stfr/emergency_controls/power_surge/abort_manual
 
 execute positioned ^ ^-1 ^-1 if predicate terf:is_block_active run tag @s add terf_case_shield_primed
 execute positioned ^ ^-1 ^-1 unless predicate terf:is_block_active run tag @s remove terf_case_shield_primed

@@ -42,7 +42,7 @@ data modify storage terf:temp args set value {arg1:'function terf:entity/machine
 execute store result storage terf:temp args.arg2 int 1 run random value 1000000..9999999
 execute if score @s terf_data_E matches ..5 run function datapipes_lib:require/with_args/3 with storage terf:temp args
 
-execute if score @s terf_data_E matches 4000.. run function terf:entity/machines/stfr/states/meltdown/start
+execute if score @s terf_data_E matches 4000.. run function terf:entity/machines/stfr/states/overload/start with entity @s data.terf
 execute if score @s terf_data_E matches 3960 run playsound terf:dem.metal_2 master @a[distance=0..] ~ ~ ~ 10 0.8
 execute if score @s terf_data_E matches 3960 run playsound terf:dem.metal_2 master @a[distance=0..] ~ ~ ~ 10 0.8
 execute if score @s terf_data_E matches 3960 run playsound terf:dem.metal_2 master @a[distance=0..] ~ ~ ~ 10 0.8

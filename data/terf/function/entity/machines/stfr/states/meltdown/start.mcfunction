@@ -7,12 +7,12 @@ playsound terf:explosion.pressuregigaboom ambient @a[distance=0..] ~ ~ ~ 20 1
 playsound terf:charge_up.reactordetonationcharging ambient @a[distance=0..] ~ ~ ~ 24 0
 playsound terf:charge_up.reactordetonationcharging ambient @a[distance=0..] ~ ~ ~ 24 0.05
 
-execute as @s[tag=terf_stab1] run function terf:entity/machines/stfr/stab_transform/off/stab_u
-execute as @s[tag=terf_stab2] run function terf:entity/machines/stfr/stab_transform/off/stab_s
-execute as @s[tag=terf_stab3] run function terf:entity/machines/stfr/stab_transform/off/stab_e
-execute as @s[tag=terf_stab4] run function terf:entity/machines/stfr/stab_transform/off/stab_n
-execute as @s[tag=terf_stab5] run function terf:entity/machines/stfr/stab_transform/off/stab_w
-execute as @s[tag=terf_stab6] run function terf:entity/machines/stfr/stab_transform/off/stab_d
+execute as @s[tag=terf_stab1] run function terf:entity/machines/stfr/actions/stabilizer/turn_off/stab_u
+execute as @s[tag=terf_stab2] run function terf:entity/machines/stfr/actions/stabilizer/turn_off/stab_s
+execute as @s[tag=terf_stab3] run function terf:entity/machines/stfr/actions/stabilizer/turn_off/stab_e
+execute as @s[tag=terf_stab4] run function terf:entity/machines/stfr/actions/stabilizer/turn_off/stab_n
+execute as @s[tag=terf_stab5] run function terf:entity/machines/stfr/actions/stabilizer/turn_off/stab_w
+execute as @s[tag=terf_stab6] run function terf:entity/machines/stfr/actions/stabilizer/turn_off/stab_d
 
 execute if score dev_mode terf_states matches 0 positioned ~4 ~ ~1 unless block ~ ~ ~ air run function terf:entity/machines/stfr/states/meltdown/liquify_reactor
 execute if score dev_mode terf_states matches 0 positioned ~-4 ~-1 ~ unless block ~ ~ ~ air run function terf:entity/machines/stfr/states/meltdown/liquify_reactor

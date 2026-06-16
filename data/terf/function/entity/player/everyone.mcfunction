@@ -125,17 +125,15 @@ execute if score @s terf_data_I matches 1.. run scoreboard players remove @s ter
 execute if score @s terf_usedcreeperspawnegg matches 1.. run function terf:entity/player/placed_multiblock_core
 
 #screen shake
-scoreboard players set temp terf_states 255
-scoreboard players set temp2 terf_states 255
-scoreboard players operation temp terf_states -= @s terf_shake_magnitude
-scoreboard players operation temp2 terf_states -= @s terf_shake_frequency
+scoreboard players operation temp terf_states = @s terf_shake_magnitude
+scoreboard players operation temp2 terf_states = @s terf_shake_frequency
 
 execute if score @s terf_data_P matches 1.. run function terf:entity/player/screenshake_explosion
 
-execute if score temp terf_states matches ..-1 run scoreboard players set temp terf_states 0
-execute if score temp2 terf_states matches ..-1 run scoreboard players set temp2 terf_states 0
+execute if score temp terf_states matches 256.. run scoreboard players set temp terf_states 255
+execute if score temp2 terf_states matches 256.. run scoreboard players set temp2 terf_states 255
 
 execute store result storage terf:temp args.magnitude double 0.003921568627451 run scoreboard players get temp terf_states
 execute store result storage terf:temp args.frequency double 0.003921568627451 run scoreboard players get temp2 terf_states
 execute store result storage terf:temp args.alarms double 0.003921568627451 run scoreboard players get @s terf_data_L
-execute positioned ^ ^ ^100 run function terf:entity/player/update_screen_shake with storage terf:temp args
+execute if entity @s[tag=!terf_epilepsy_mode] anchored eyes positioned ^ ^ ^0.1 run function terf:entity/player/update_screen_shake with storage terf:temp args

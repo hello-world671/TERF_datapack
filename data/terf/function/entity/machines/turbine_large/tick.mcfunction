@@ -1,6 +1,6 @@
 #add weird sound and explode the turbine when its powered and not connected to mainframe
 execute unless score @s terf_connected_mainframe = @s terf_connected_mainframe if score @s terf_data_A matches 69.. as @s[tag=terf_turbinecase] at @s run playsound minecraft:entity.wither.shoot master @a[distance=0..] ~ ~ ~ 1 2
-execute unless score @s terf_connected_mainframe = @s terf_connected_mainframe if score ETratetimer terf_states matches 10.. if predicate datapipes_lib:chances/0.1 if score @s terf_data_A matches 69.. as @s[tag=terf_turbinecase] run function terf:entity/machines/turbine_large/explode
+execute unless score @s terf_connected_mainframe = @s terf_connected_mainframe if score ETratetimer terf_states matches 10.. if predicate datapipes_lib:chances/0.05 if score @s terf_data_A matches 69.. as @s[tag=terf_turbinecase] run function terf:entity/machines/turbine_large/explode
 
 #generate the power
 execute if score NETratetimer terf_states >= NETrate terf_states run function terf:entity/machines/turbine_large/slower_tick

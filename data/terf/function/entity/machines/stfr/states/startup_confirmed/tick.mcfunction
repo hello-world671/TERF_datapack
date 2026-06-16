@@ -1,20 +1,23 @@
 scoreboard players add @s terf_data_E 1
-execute if score @s terf_data_E matches 860.. run function terf:entity/machines/stfr/states/online/tick
 
 #override control panel text
 data modify storage terf:temp displays.group_core[0].messages[0] set value {"text":". Starting .",screen_color:"yellow"}
 
 #close stabilizer maintenance trapdoors
-execute if score @s terf_data_E matches 50 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_s with entity @s data.terf
-execute if score @s terf_data_E matches 80 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_e with entity @s data.terf
-execute if score @s terf_data_E matches 65 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_n with entity @s data.terf
-execute if score @s terf_data_E matches 75 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_w with entity @s data.terf
-execute if score @s terf_data_E matches 79 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_u with entity @s data.terf
-execute if score @s terf_data_E matches 85 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_d with entity @s data.terf
+execute if score @s terf_data_E matches 50 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_s with entity @s data.terf
+execute if score @s terf_data_E matches 80 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_e with entity @s data.terf
+execute if score @s terf_data_E matches 65 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_n with entity @s data.terf
+execute if score @s terf_data_E matches 75 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_w with entity @s data.terf
+execute if score @s terf_data_E matches 79 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_u with entity @s data.terf
+execute if score @s terf_data_E matches 85 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_d with entity @s data.terf
 
-#automatic abortion system
-#execute if score @s terf_data_E matches 29 run function terf:entity/machines/stfr/states/startup_confirmed/abort_no_fuel
-execute if score @s terf_data_E matches 29..822 if score working_stabs terf_states matches 0 run function terf:entity/machines/stfr/states/startup_confirmed/abort_no_stabilizers
+#Automatic Startup Abortion System aka. ASAS
+$execute if score @s terf_data_E matches 29 as @e[type=interaction,tag=terf_receptacle,tag=terf_related_$(machine_id)] unless score @s terf_data_A matches 33 run function terf:entity/machines/stfr/states/startup_confirmed/abort {voiceline:'',error:'fuel_capsules_missing'}
+$execute if score @s terf_data_E matches 29 as @e[type=item_display,tag=terf_receptacle,tag=terf_related_$(machine_id)] unless data entity @s {item:{components:{"minecraft:custom_model_data":{floats:[5f]}}}} run function terf:entity/machines/stfr/states/startup_confirmed/abort {voiceline:'',error:'fuel_capsules_not_open'}
+$execute if score @s terf_data_E matches 29 as @e[type=interaction,tag=terf_receptacle,tag=terf_related_$(machine_id)] at @s unless block ^ ^.1 ^-.7 waxed_lightning_rod run function terf:entity/machines/stfr/states/startup_confirmed/abort {voiceline:'',error:'fuel_capsules_improperly_seated'}
+execute if score @s terf_data_E matches 29 unless data entity @s data.terf.injection_list[0] run function terf:entity/machines/stfr/states/startup_confirmed/abort {voiceline:'',error:'injection_list_empty_retry_startup'}
+
+execute if score @s terf_data_E matches 29..822 if score working_stabs terf_states matches 0 run function terf:entity/machines/stfr/states/startup_confirmed/abort {voiceline:'',error:'stabilizers_down'}
 
 #keep breakers on until 1000
 execute if score @s terf_data_E matches ..1000 run tag @s add terf_breaker_interested
@@ -121,9 +124,9 @@ execute if score @s terf_data_E matches 848 run particle minecraft:gust ~ ~ ~-3.
 #activate core
 execute if score @s terf_data_E matches 860 run function terf:entity/machines/stfr/states/startup_confirmed/activate
 execute if score @s terf_data_E matches 860.. run function terf:entity/machines/stfr/visuals/core/tick
+execute if score @s terf_data_E matches 860.. run function terf:entity/machines/stfr/states/online/tick
 
 #finish startup
-execute if score @s terf_data_E matches 1030 run tag @s add terf_low_core_spin
 execute if score @s terf_data_E matches 1030 as @s run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.starting.complete',level:0,text:'{"text":"Reactor Startup Sequence Complete. Stabilized Thermonuclear Fusion Reactor Core Online"}'}
 execute if score @s terf_data_E matches 1030 run tag @s remove terf_core_starting_alarm
 execute if score @s terf_data_E matches 1030.. run scoreboard players set @s terf_data_A 3

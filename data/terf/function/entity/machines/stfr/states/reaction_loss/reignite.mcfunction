@@ -1,4 +1,4 @@
-function terf:entity/machines/stfr/case_blowout
+function terf:entity/machines/stfr/actions/case/blowout
 playsound terf:explosion.rocketfly ambient @a[distance=0..] ~ ~ ~ 10 1.2
 playsound terf:explosion.rocketfly ambient @a[distance=0..] ~ ~ ~ 10 1.2
 playsound terf:explosion.rocketfly ambient @a[distance=0..] ~ ~ ~ 10 1.2

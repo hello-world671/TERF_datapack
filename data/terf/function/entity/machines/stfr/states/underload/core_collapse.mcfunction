@@ -2,7 +2,7 @@ scoreboard players set @a[distance=..80] terf_shake_frequency 5
 scoreboard players set @a[distance=..80] terf_shake_magnitude 8
 
 stopsound @a[distance=..128] * minecraft:block.bell.resonate
-function terf:entity/machines/stfr/case_blowout
+function terf:entity/machines/stfr/actions/case/blowout
 title @a[distance=..40] times 0 1 4
 title @a[distance=..40] title "\ueff4"
 

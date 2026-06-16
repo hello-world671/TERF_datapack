@@ -6,9 +6,9 @@ function terf:entity/machines/stfr/calculations/tick
 #control panel
 scoreboard players set T2 terf_states 1
 execute if score @s terf_data_E matches 236.. run function terf:entity/machines/stfr/states/startup_overload/screens
-execute unless score @s terf_data_E matches 200..5945 run data modify storage terf:temp displays.group_main[] set value {messages:["","","",""]}
-execute unless score @s terf_data_E matches 200..5945 run data modify storage terf:temp displays.group_core[] set value {messages:["","","",""]}
-execute unless score @s terf_data_E matches 200..5945 run data modify storage terf:temp displays.structure[] set value {messages:["","","",""]}
+execute unless score @s terf_data_E matches 200..5945 unless score @s terf_data_E matches -1 run data modify storage terf:temp displays.group_main[] set value {messages:["","","",""]}
+execute unless score @s terf_data_E matches 200..5945 unless score @s terf_data_E matches -1 run data modify storage terf:temp displays.group_core[] set value {messages:["","","",""]}
+execute unless score @s terf_data_E matches 200..5945 unless score @s terf_data_E matches -1 run data modify storage terf:temp displays.structure[] set value {messages:["","","",""]}
 
 execute if score @s terf_data_E matches 200..216 run data modify storage terf:temp displays.group_main[] set value {has_glowing_text:1b,color:red,messages:["⚠ Critical Error","","",""]}
 execute if score @s terf_data_E matches 200..216 run data modify storage terf:temp displays.group_core[] set value {has_glowing_text:1b,color:red,messages:["⚠ Critical Error","","",""]}
@@ -79,12 +79,12 @@ execute if score @s terf_data_E matches 506..516 run playsound terf:alarms.notif
 execute if score @s terf_data_E matches 777 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.startup_overload.output_stable',level:1,text:'{"text":"Reactor Power Output Stable, Begin Restabilization Protocol Immediately.","color":"yellow"}'}
 
 #open stabilizer maintenance trapdoors
-execute if score @s terf_data_E matches 506 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_s with entity @s data.terf
-execute if score @s terf_data_E matches 512 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_e with entity @s data.terf
-execute if score @s terf_data_E matches 526 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_n with entity @s data.terf
-execute if score @s terf_data_E matches 529 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_w with entity @s data.terf
-execute if score @s terf_data_E matches 531 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_u with entity @s data.terf
-execute if score @s terf_data_E matches 537 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_d with entity @s data.terf
+execute if score @s terf_data_E matches 506 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_s with entity @s data.terf
+execute if score @s terf_data_E matches 512 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_e with entity @s data.terf
+execute if score @s terf_data_E matches 526 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_n with entity @s data.terf
+execute if score @s terf_data_E matches 529 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_w with entity @s data.terf
+execute if score @s terf_data_E matches 531 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_u with entity @s data.terf
+execute if score @s terf_data_E matches 537 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_d with entity @s data.terf
 
 #explosion countdown messages
 execute if score @s terf_data_E matches 1385 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.startup_overload.detonation_3.5m',level:2,text:'{"text":"\\u26a0\\u26a0\\u26a0 REACTOR DETONATION IN T~3.5 MINUTES \\u26a0\\u26a0\\u26a0","color":"dark_red"}'}
@@ -101,7 +101,7 @@ execute if score @s terf_data_E matches 105 run function terf:entity/machines/st
 #
 execute if score @s terf_data_E matches 2010 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'none',level:3,text:'{"text":"Stage-I Internal Shield (Beta) Failure!","color":"red"}'}
 execute if score @s terf_data_E matches 1990 run function terf:entity/machines/stfr/states/startup_overload/shield_explosion
-execute if score @s terf_data_E matches 1990 align xyz run function terf:entity/machines/stfr/states/startup_overload/beams/check_case
+execute if score @s terf_data_E matches 1990 run function terf:entity/machines/stfr/visuals/volumetric_flare/start
 execute if score @s terf_data_E matches 1995 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/tick_beams with entity @s data.terf
 execute if score @s terf_data_E matches 2090 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/kill_beams with entity @s data.terf
 
@@ -114,8 +114,8 @@ execute if score temp terf_states matches 1.. run scoreboard players operation @
 #
 execute if score @s terf_data_E matches 3345 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'none',level:3,text:'{"text":"Stage-II Internal Shield Intensity Critical!","color":"red"}'}
 execute if score @s terf_data_E matches 3630 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'none',level:3,text:'{"text":"Stage-II Internal Shield (Gamma) Failure! Major Damage To Reactor Systems Detected","color":"red"}'}
-execute if score @s terf_data_E matches 3610 run function terf:entity/machines/stfr/case_explosion
-execute if score @s terf_data_E matches 3610 align xyz run function terf:entity/machines/stfr/states/startup_overload/beams/check_case
+execute if score @s terf_data_E matches 3610 run function terf:entity/machines/stfr/actions/case/explosion
+execute if score @s terf_data_E matches 3610 run function terf:entity/machines/stfr/visuals/volumetric_flare/start
 execute if score @s terf_data_E matches 3610 run function terf:entity/machines/stfr/states/startup_overload/shield_explosion
 execute if score @s terf_data_E matches 3615 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/tick_beams with entity @s data.terf
 execute if score @s terf_data_E matches 3710 run function terf:entity/machines/stfr/states/overload/shield_explosion_beams/kill_beams with entity @s data.terf
@@ -167,14 +167,15 @@ scoreboard players set @s terf_data_P 101500000
 execute unless score @s terf_data_E matches -1 run return run execute if score NETratetimer terf_states >= NETrate terf_states run function terf:entity/machines/stfr/states/startup_overload/slower_tick
 execute if score @s terf_data_U matches 600 run function terf:entity/machines/stfr/states/startup_overload/restabilize
 execute if score @s terf_data_U matches 600.. run function terf:entity/machines/stfr/states/online/tick
+execute if score @s terf_data_U matches 855.. run kill @e[type=item_display,tag=terf_stfr_startup_overload_beam,distance=..1]
 execute if score @s terf_data_U matches 855.. run scoreboard players set @s terf_data_A 3
 
 execute if score @s terf_data_U matches 600.. if score @s terf_data_Af matches 1.. run scoreboard players remove @s terf_data_Af 1
 
 #close stabilizer maintenance trapdoors
-execute if score @s terf_data_U matches 200 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_s with entity @s data.terf
-execute if score @s terf_data_U matches 214 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_e with entity @s data.terf
-execute if score @s terf_data_U matches 219 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_n with entity @s data.terf
-execute if score @s terf_data_U matches 230 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_w with entity @s data.terf
-execute if score @s terf_data_U matches 235 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_u with entity @s data.terf
-execute if score @s terf_data_U matches 237 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_d with entity @s data.terf
+execute if score @s terf_data_U matches 200 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_s with entity @s data.terf
+execute if score @s terf_data_U matches 214 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_e with entity @s data.terf
+execute if score @s terf_data_U matches 219 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_n with entity @s data.terf
+execute if score @s terf_data_U matches 230 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_w with entity @s data.terf
+execute if score @s terf_data_U matches 235 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_u with entity @s data.terf
+execute if score @s terf_data_U matches 237 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_d with entity @s data.terf

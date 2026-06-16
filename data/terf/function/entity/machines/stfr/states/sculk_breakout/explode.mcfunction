@@ -21,7 +21,7 @@ playsound terf:braam ambient @a[distance=0..] ~ ~ ~ 20 0
 playsound terf:braam ambient @a[distance=0..] ~ ~ ~ 20 0
 playsound terf:braam ambient @a[distance=0..] ~ ~ ~ 20 0
 
-function terf:entity/machines/stfr/case_blowout
+function terf:entity/machines/stfr/actions/case/blowout
 particle minecraft:sonic_boom ~ ~ ~ 5 5 5 1 500 force
 particle minecraft:sculk_soul ~ ~ ~ 0 0 0 1 1000 force
 

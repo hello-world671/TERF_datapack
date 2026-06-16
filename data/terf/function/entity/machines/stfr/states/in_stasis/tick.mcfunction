@@ -5,7 +5,7 @@ function terf:autokick
 
 scoreboard players set spin_slow_adder terf_states 60000
 function terf:entity/machines/stfr/calculations/tick
-#function terf:entity/machines/stfr/case_fire
+#function terf:entity/machines/stfr/actions/case/fire
 
 scoreboard players add @s terf_data_E 1
 execute if score @s terf_data_B matches ..10000 run scoreboard players add @s terf_data_B 90

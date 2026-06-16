@@ -96,12 +96,12 @@ execute if score @s terf_data_E matches 752 run function terf:entity/machines/st
 execute if score @s terf_data_E matches 753 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'none',level:0,text:'{"text":"Water For A Full Core Content Purge"}'}
 
 #open stabilizer maintenance trapdoors
-execute if score @s terf_data_E matches 760 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_s with entity @s data.terf
-execute if score @s terf_data_E matches 770 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_e with entity @s data.terf
-execute if score @s terf_data_E matches 785 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_n with entity @s data.terf
-execute if score @s terf_data_E matches 780 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_w with entity @s data.terf
-execute if score @s terf_data_E matches 790 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_u with entity @s data.terf
-execute if score @s terf_data_E matches 795 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_d with entity @s data.terf
+execute if score @s terf_data_E matches 760 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_s with entity @s data.terf
+execute if score @s terf_data_E matches 770 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_e with entity @s data.terf
+execute if score @s terf_data_E matches 785 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_n with entity @s data.terf
+execute if score @s terf_data_E matches 780 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_w with entity @s data.terf
+execute if score @s terf_data_E matches 790 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_u with entity @s data.terf
+execute if score @s terf_data_E matches 795 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_d with entity @s data.terf
 
 execute if score @s terf_data_E matches 1200 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.shut_fail.diameter',level:1,text:'{"text":"Core Diameter Decreasing Due To Extreme Shield Densities! ","color":"red"},{"text":"Core Spin Levels Rising Exponentially!","color":"gold"}'}
 
@@ -170,12 +170,12 @@ execute if score @s terf_data_E matches 4050 run scoreboard players set @a[dista
 execute if score @s terf_data_E matches 4050.. run function terf:entity/machines/stfr/states/shutdown_failure/orbit/summon with entity @s data.terf
 $execute if score @s terf_data_E matches 4050.. as @e[type=marker,tag=terf_shutdown_fail_orbit,tag=terf_related_$(machine_id)] at @s run function terf:entity/machines/stfr/states/shutdown_failure/orbit/tick
 
-execute if score @s[tag=terf_stab3] terf_data_E matches 4050.. if predicate datapipes_lib:chances/0.1 positioned ~11 ~ ~ run function terf:entity/machines/stfr/explode_stabilizer
-execute if score @s[tag=terf_stab5] terf_data_E matches 4050.. if predicate datapipes_lib:chances/0.1 positioned ~-11 ~ ~ run function terf:entity/machines/stfr/explode_stabilizer
-execute if score @s[tag=terf_stab1] terf_data_E matches 4050.. if predicate datapipes_lib:chances/0.1 positioned ~ ~11 ~ run function terf:entity/machines/stfr/explode_stabilizer
-execute if score @s[tag=terf_stab6] terf_data_E matches 4050.. if predicate datapipes_lib:chances/0.1 positioned ~ ~-11 ~ run function terf:entity/machines/stfr/explode_stabilizer
-execute if score @s[tag=terf_stab2] terf_data_E matches 4050.. if predicate datapipes_lib:chances/0.1 positioned ~ ~ ~11 run function terf:entity/machines/stfr/explode_stabilizer
-execute if score @s[tag=terf_stab4] terf_data_E matches 4050.. if predicate datapipes_lib:chances/0.1 positioned ~ ~ ~-11 run function terf:entity/machines/stfr/explode_stabilizer
+execute if score @s[tag=terf_stab3] terf_data_E matches 4050.. if predicate datapipes_lib:chances/0.1 positioned ~11 ~ ~ run function terf:entity/machines/stfr/actions/stabilizer/explode
+execute if score @s[tag=terf_stab5] terf_data_E matches 4050.. if predicate datapipes_lib:chances/0.1 positioned ~-11 ~ ~ run function terf:entity/machines/stfr/actions/stabilizer/explode
+execute if score @s[tag=terf_stab1] terf_data_E matches 4050.. if predicate datapipes_lib:chances/0.1 positioned ~ ~11 ~ run function terf:entity/machines/stfr/actions/stabilizer/explode
+execute if score @s[tag=terf_stab6] terf_data_E matches 4050.. if predicate datapipes_lib:chances/0.1 positioned ~ ~-11 ~ run function terf:entity/machines/stfr/actions/stabilizer/explode
+execute if score @s[tag=terf_stab2] terf_data_E matches 4050.. if predicate datapipes_lib:chances/0.1 positioned ~ ~ ~11 run function terf:entity/machines/stfr/actions/stabilizer/explode
+execute if score @s[tag=terf_stab4] terf_data_E matches 4050.. if predicate datapipes_lib:chances/0.1 positioned ~ ~ ~-11 run function terf:entity/machines/stfr/actions/stabilizer/explode
 
 execute if score @s terf_data_E matches 4350 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.shut_fail.instability',level:4,text:'{"text":"Extreme Shield Instability! Systems Predict A Complete Containment Failure In T-30 Seconds!","color":"red"}'}
 
@@ -297,7 +297,7 @@ $execute if score succeeded terf_states matches 1 as @e[type=minecraft:interacti
 
 execute if score @s terf_data_Ab matches 1200 run function terf:entity/machines/stfr/states/shutdown_failure/restabilization_end with entity @s data.terf
 
-execute if score @s terf_data_Ab matches 1400 run function terf:entity/machines/stfr/stabilizers_off
+execute if score @s terf_data_Ab matches 1400 run function terf:entity/machines/stfr/actions/stabilizer/turn_off/all
 execute if score @s terf_data_Ab matches 1500.. run function terf:entity/machines/multiblock_core_kill
 
 #panel glitch effect

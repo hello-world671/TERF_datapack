@@ -87,6 +87,9 @@ execute if score receptacle_tick terf_states matches 1.. run function terf:entit
 #vehicles (aka entities with a passenger layout)
 execute as @e[tag=terf_vehicle] at @s run function terf:entity/vehicle/vehicle_tick
 
+#universal ticking system
+execute as @e[tag=terf_ticked] at @s run function terf:require/ticking/tick with entity @s data.terf
+
 #multiblock core
 execute if score NETratetimer terf_states >= NETrate terf_states as @e[type=marker,tag=terf_multiblockcore] at @s run function terf:entity/machines/multiblock_core_slower_tick
 execute as @e[type=marker,tag=terf_multiblockcore,tag=!terf_slower_ticked] at @s run function terf:entity/machines/multiblock_core_args with entity @s data.terf

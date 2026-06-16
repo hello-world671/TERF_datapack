@@ -255,15 +255,15 @@ execute if score NETratetimer terf_states = NETratehalf terf_states run tag @s r
 execute if score NETratetimer terf_states = NETratehalf terf_states if score steam_amount terf_states > coolant_removed terf_states run tag @s add terf_outtake_blocked
 
 #case leaking stuff
-execute as @s[tag=!terf_case,tag=!terf_case_shield] run function terf:entity/machines/stfr/case_leak
+execute as @s[tag=!terf_case,tag=!terf_case_shield] run function terf:entity/machines/stfr/actions/case/leak
 
 #case boom
-execute if score case_pressure_divided terf_states matches 81156.. if predicate datapipes_lib:chances/1 as @s[tag=terf_case] run function terf:entity/machines/stfr/case_blowout
-execute if score case_pressure_divided terf_states matches 95156.. if predicate datapipes_lib:chances/0.3 as @s[tag=terf_case] run function terf:entity/machines/stfr/case_explosion
+execute if score case_pressure_divided terf_states matches 81156.. if predicate datapipes_lib:chances/1 as @s[tag=terf_case] run function terf:entity/machines/stfr/actions/case/blowout
+execute if score case_pressure_divided terf_states matches 95156.. if predicate datapipes_lib:chances/0.3 as @s[tag=terf_case] run function terf:entity/machines/stfr/actions/case/explosion
 
 #case fire
-execute if score case_temp_divided terf_states matches 1000.. run function terf:entity/machines/stfr/case_fire
-execute if score case_temp_divided terf_states matches 1084.. if predicate datapipes_lib:chances/3 run function terf:entity/machines/stfr/degrade_case
+execute if score case_temp_divided terf_states matches 1000.. run function terf:entity/machines/stfr/actions/case/fire
+execute if score case_temp_divided terf_states matches 1084.. if predicate datapipes_lib:chances/3 run function terf:entity/machines/stfr/actions/case/degrade
 
 data modify storage terf:temp args set value {command:'summon minecraft:text_display ^ ^ ^4 {Tags:["terf_particle","terf_humongous_fire"],billboard:center,text:{"text":"\\ueff5","color":"#111111"},background:0,view_range:730,brightness:{sky:15,block:15},teleport_duration:2,alignment:center}'}
 execute store result storage terf:temp args.yaw float 1 run random value 0..360
@@ -326,7 +326,7 @@ execute if score @s terf_data_P matches ..-27315000 run scoreboard players set @
 #other functionalities
 function terf:entity/machines/stfr/calculations/extra
 
-execute if score steam_amount terf_states matches 83580000.. if predicate datapipes_lib:chances/1 run function terf:entity/machines/stfr/eject_steam
+execute if score steam_amount terf_states matches 83580000.. if predicate datapipes_lib:chances/1 run function terf:entity/machines/stfr/actions/stabilizer/eject_steam
 
 ################################################
 

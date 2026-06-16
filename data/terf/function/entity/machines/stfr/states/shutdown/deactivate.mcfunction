@@ -44,5 +44,5 @@ tag @s add terf_low_temp_crit
 tag @s add terf_fuel_crit
 tag @s add terf_low_fuel
 
-function terf:entity/machines/stfr/stabilizers_off
+function terf:entity/machines/stfr/actions/stabilizer/turn_off/all
 function terf:entity/machines/stfr/visuals/stabilizer/all_stab_rods_off

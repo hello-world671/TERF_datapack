@@ -4,6 +4,8 @@
     "#terf:indestructible",
     "minecraft:sculk_catalyst",
     "minecraft:piston_head",
+    "minecraft:sticky_piston",
+    "minecraft:piston",
     "minecraft:crying_obsidian",
     "minecraft:enchanting_table",
     "minecraft:ender_chest",
@@ -24,7 +26,6 @@
     "minecraft:hopper",
     "minecraft:lectern",
     "minecraft:smoker",
-    "minecraft:trapped_chest",
-    "minecraft:piston_head"
+    "minecraft:trapped_chest"
   ]
 }

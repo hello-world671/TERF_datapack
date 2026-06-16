@@ -13,7 +13,7 @@ data modify storage terf:temp args.pages set from block ~ ~ ~ Book.components.mi
 data modify storage terf:temp args.pages set from block ~ ~ ~ Book.components.minecraft:written_book_content.pages
 
 execute if data storage terf:temp args.pages[0] run function terf:entity/machines/redstone_sequencer/compiler/iterate_pages
-execute unless score compiler_mode terf_states matches 0 run playsound terf:alarms.computer_error master @a ~ ~ ~ 0.3 2
+execute unless score compiler_mode terf_states matches 0 run playsound terf:alarms.computer_error master @a ~ ~ ~ 0.1 2
 execute if score compiler_mode terf_states matches 1 run return run data modify entity @s data.terf.error set value 'Comment never closed'
 execute if score compiler_mode terf_states matches 2 run return run data modify entity @s data.terf.error set value 'End missing semicolon'
 execute if score compiler_mode terf_states matches -1 run return fail
@@ -22,4 +22,4 @@ scoreboard players set succeeded terf_states 0
 function terf:entity/machines/redstone_sequencer/compiler/finish with storage terf:temp args
 
 execute if score succeeded terf_states matches 0 run return run data modify entity @s data.terf.error set value 'Unknown error: Macro input not an array'
-playsound terf:alarms.computer_correct master @a ~ ~ ~ 0.3 2
+playsound terf:alarms.computer_correct master @a ~ ~ ~ 0.1 2

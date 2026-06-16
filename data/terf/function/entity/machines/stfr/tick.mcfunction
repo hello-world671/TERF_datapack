@@ -127,7 +127,7 @@ function terf:entity/machines/stfr/generate_panel_text with entity @s data.terf
 #update states
 execute if score @s terf_data_A matches 0 run function terf:entity/machines/stfr/states/offline/tick
 execute if score @s terf_data_A matches 1 run function terf:entity/machines/stfr/states/startup/tick
-execute if score @s terf_data_A matches 2 run function terf:entity/machines/stfr/states/startup_confirmed/tick
+execute if score @s terf_data_A matches 2 run function terf:entity/machines/stfr/states/startup_confirmed/tick with entity @s data.terf
 execute if score @s terf_data_A matches 3 run function terf:entity/machines/stfr/states/online/tick with entity @s data.fluids[2]
 execute if score @s terf_data_A matches 4 run function terf:entity/machines/stfr/states/shutdown/tick
 execute if score @s terf_data_A matches 5 run function terf:entity/machines/stfr/states/overload/tick with entity @s data.terf

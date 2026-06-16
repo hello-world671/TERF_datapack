@@ -10,4 +10,4 @@ tag @s remove terf_stab4_breach
 tag @s remove terf_stab5_breach
 tag @s remove terf_stab6_breach
 tag @s remove terf_stab_pistons_breach
-function terf:entity/machines/stfr/stabilizers_on
+function terf:entity/machines/stfr/actions/stabilizer/turn_on/all

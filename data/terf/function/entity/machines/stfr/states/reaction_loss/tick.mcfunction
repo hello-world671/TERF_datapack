@@ -11,7 +11,7 @@ scoreboard players operation temp terf_states = @s terf_data_T
 scoreboard players operation temp terf_states %= 16 terf_states
 execute if score temp terf_states matches 0 run playsound minecraft:block.bell.resonate master @a[distance=0..] ~ ~ ~ 5 0
 
-execute if predicate datapipes_lib:chances/10 run function terf:entity/machines/stfr/case_freeze
+execute if predicate datapipes_lib:chances/10 run function terf:entity/machines/stfr/actions/case/freeze
 
 scoreboard players add @s terf_data_V 70
 scoreboard players operation temp terf_states = @s terf_data_E

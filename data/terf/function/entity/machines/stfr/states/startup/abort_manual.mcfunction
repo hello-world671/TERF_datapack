@@ -6,5 +6,5 @@ tag @s remove terf_core_starting_alarm
 tag @s remove terf_breakers_activated
 tag @s remove terf_bcd_breakers
 tag @s remove terf_breaker_interested
-function terf:entity/machines/stfr/stabilizers_off
+function terf:entity/machines/stfr/actions/stabilizer/turn_off/all
 function terf:entity/machines/stfr/visuals/stabilizer/all_stab_rods_off

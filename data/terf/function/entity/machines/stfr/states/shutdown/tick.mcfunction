@@ -44,16 +44,14 @@ execute if score @s terf_data_E matches 810 run tag @s add terf_fuel_crit
 execute if score @s terf_data_E matches 810 run tag @s add terf_low_fuel
 
 #open stabilizer maintenance trapdoors
-execute if score @s terf_data_E matches 1100 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_s with entity @s data.terf
-execute if score @s terf_data_E matches 1110 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_e with entity @s data.terf
-execute if score @s terf_data_E matches 1105 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_n with entity @s data.terf
-execute if score @s terf_data_E matches 1115 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_w with entity @s data.terf
-execute if score @s terf_data_E matches 1117 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_u with entity @s data.terf
-execute if score @s terf_data_E matches 1128 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_d with entity @s data.terf
+execute if score @s terf_data_E matches 1100 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_s with entity @s data.terf
+execute if score @s terf_data_E matches 1110 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_e with entity @s data.terf
+execute if score @s terf_data_E matches 1105 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_n with entity @s data.terf
+execute if score @s terf_data_E matches 1115 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_w with entity @s data.terf
+execute if score @s terf_data_E matches 1117 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_u with entity @s data.terf
+execute if score @s terf_data_E matches 1128 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_d with entity @s data.terf
 
-execute if score @s terf_data_E matches 1120 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'none',level:0,text:'{"text":"Fusion Reactor Shutdown Sequence Complete!"}'}
-execute if score @s terf_data_E matches 1140.. run scoreboard players set @s terf_data_A 0
-execute if score @s terf_data_E matches 1140.. run tag @s remove terf_core_starting_alarm
+execute if score @s terf_data_E matches 1120.. run function terf:entity/machines/stfr/states/shutdown/complete with entity @s data.terf
 
 execute if score @s terf_data_E matches 470.. if score @s terf_data_F matches 1.. run scoreboard players remove @s terf_data_F 1
 

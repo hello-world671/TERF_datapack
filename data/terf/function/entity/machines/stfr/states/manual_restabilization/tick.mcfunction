@@ -236,12 +236,12 @@ execute if score @s terf_data_Ab matches 5 run execute if score @s terf_data_B m
 execute if score @s terf_data_Ab matches 5 if score @s terf_data_U matches 600.. run function terf:entity/machines/stfr/states/manual_restabilization/restabilize
 
 #close stabilizer maintenance trapdoors
-execute if score @s terf_data_Ab matches 5 if score @s terf_data_U matches 325 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_s with entity @s data.terf
-execute if score @s terf_data_Ab matches 5 if score @s terf_data_U matches 336 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_e with entity @s data.terf
-execute if score @s terf_data_Ab matches 5 if score @s terf_data_U matches 342 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_n with entity @s data.terf
-execute if score @s terf_data_Ab matches 5 if score @s terf_data_U matches 335 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_w with entity @s data.terf
-execute if score @s terf_data_Ab matches 5 if score @s terf_data_U matches 345 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_u with entity @s data.terf
-execute if score @s terf_data_Ab matches 5 if score @s terf_data_U matches 347 run function terf:entity/machines/stfr/stab_transform/close_trapdoors/stab_d with entity @s data.terf
+execute if score @s terf_data_Ab matches 5 if score @s terf_data_U matches 325 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_s with entity @s data.terf
+execute if score @s terf_data_Ab matches 5 if score @s terf_data_U matches 336 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_e with entity @s data.terf
+execute if score @s terf_data_Ab matches 5 if score @s terf_data_U matches 342 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_n with entity @s data.terf
+execute if score @s terf_data_Ab matches 5 if score @s terf_data_U matches 335 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_w with entity @s data.terf
+execute if score @s terf_data_Ab matches 5 if score @s terf_data_U matches 345 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_u with entity @s data.terf
+execute if score @s terf_data_Ab matches 5 if score @s terf_data_U matches 347 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_close/stab_d with entity @s data.terf
 
 $execute if score @s terf_data_Ab matches 5 run kill @e[type=item_display,tag=terf_stfr_shield_explosion,tag=terf_related_$(machine_id),distance=..1]
 

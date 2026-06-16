@@ -34,7 +34,7 @@ execute if score temp terf_states matches 1 run playsound terf:alarms.airraidsir
 
 $execute as @e[type=minecraft:text_display,tag=terf_related_$(machine_id),tag=terf_overload_flare,limit=2,sort=random] run function terf:entity/machines/stfr/states/overload/rotate_red_text_display
 
-function terf:entity/machines/stfr/case_leak
+function terf:entity/machines/stfr/actions/case/leak
 
 execute if score @s terf_data_E matches 60 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.meltdown.shelter',level:4,text:'{"text":"TOTAL CONTAINMENT FAILURE! CORE EXPLOSION IS INEVITABLE! SEEK SHELTER IMMEDIATELY!","color":"red"}'}
 

@@ -4,7 +4,7 @@ scoreboard players set @s terf_data_Ag 0
 scoreboard players set @s terf_data_Ah -100
 
 #blow case
-function terf:entity/machines/stfr/case_explosion
+function terf:entity/machines/stfr/actions/case/explosion
 scoreboard players add @a[distance=..80] terf_shake_magnitude 10
 
 #summon a *lot* of particles

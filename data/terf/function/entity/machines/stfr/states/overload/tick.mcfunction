@@ -45,12 +45,12 @@ execute if score @s terf_data_E matches 820 run function terf:entity/machines/st
 execute if score @s terf_data_E matches 1220 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'stfr.overload.field',level:3,text:'{"text":"High Probability Of Plasma Detachment Due To Chamber-Wide Magnetic Field Instability!","color":"red"}'}
 
 #open stabilizer maintenance trapdoors
-execute if score @s terf_data_E matches 325 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_s with entity @s data.terf
-execute if score @s terf_data_E matches 336 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_e with entity @s data.terf
-execute if score @s terf_data_E matches 342 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_n with entity @s data.terf
-execute if score @s terf_data_E matches 335 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_w with entity @s data.terf
-execute if score @s terf_data_E matches 345 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_u with entity @s data.terf
-execute if score @s terf_data_E matches 347 run function terf:entity/machines/stfr/stab_transform/open_trapdoors/stab_d with entity @s data.terf
+execute if score @s terf_data_E matches 325 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_s with entity @s data.terf
+execute if score @s terf_data_E matches 336 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_e with entity @s data.terf
+execute if score @s terf_data_E matches 342 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_n with entity @s data.terf
+execute if score @s terf_data_E matches 335 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_w with entity @s data.terf
+execute if score @s terf_data_E matches 345 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_u with entity @s data.terf
+execute if score @s terf_data_E matches 347 run function terf:entity/machines/stfr/actions/stabilizer/trapdoors_open/stab_d with entity @s data.terf
 
 #process sounds for this state
 function terf:entity/machines/stfr/sound/humming_tick

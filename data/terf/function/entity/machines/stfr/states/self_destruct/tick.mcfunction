@@ -51,7 +51,7 @@ function terf:entity/machines/stfr/calculations/extra
 execute if score @s terf_data_E matches 100 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'none',level:2,text:'{"text":"Self-Destruct Protocol Has Been Initialized...","color":"red"}'}
 
 execute if score @s terf_data_E matches 2405 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'none',level:3,text:'{"text":"Self-Destruct Protocol Is Now In Effect.","color":"red"}'}
-execute if score @s terf_data_E matches 2405 run function terf:entity/machines/stfr/stabilizers_on
+execute if score @s terf_data_E matches 2405 run function terf:entity/machines/stfr/actions/stabilizer/turn_on/all
 
 execute if score @s terf_data_E matches 2455..2485 if entity @s[tag=terf_stfr_offline] run playsound minecraft:block.note_block.snare ambient @a[distance=0..] ~ ~ ~ 4 2
 execute if score @s terf_data_E matches 2455..2485 if entity @s[tag=terf_stfr_offline] run particle minecraft:explosion ~ ~ ~ 0 0 0 0.3 10 force
@@ -79,7 +79,7 @@ execute if score @s terf_data_E matches 2940 run function terf:require/run_n_tim
 execute if score @s terf_data_E matches 2910..2915 run scoreboard players add @a[distance=..80] terf_shake_magnitude 1
 execute if score @s terf_data_E matches 2910..3010 run scoreboard players add @a[distance=..80] terf_shake_frequency 3
 
-execute if score @s terf_data_E matches 2910.. run function terf:entity/machines/stfr/case_fire
+execute if score @s terf_data_E matches 2910.. run function terf:entity/machines/stfr/actions/case/fire
 
 execute if score @s terf_data_E matches 3360 run function terf:entity/machines/stfr/broadcast {bcd:"return 1",voiceline:'none',level:4,text:'{"text":"Extreme Stabilizer Overload! Total System Disassembly Imminent. Brace For Impact!","color":"red"}'}
 execute if score @s terf_data_E matches 3320 run playsound terf:powerpurge ambient @a[distance=0..] ~ ~ ~ 10 2
@@ -90,7 +90,7 @@ execute store result storage terf:temp args.arg2 int 1 run random value 1000000.
 execute if score @s terf_data_E matches 3700.. run function datapipes_lib:require/with_args/3 with storage terf:temp args
 
 execute if score @s terf_data_E matches 3320 run scoreboard players set @a[distance=..80] terf_shake_magnitude 50
-execute if score @s terf_data_E matches 3320 run function terf:entity/machines/stfr/case_explosion
+execute if score @s terf_data_E matches 3320 run function terf:entity/machines/stfr/actions/case/explosion
 execute if score @s terf_data_E matches 3320.. run function terf:require/run_n_times {command:'function terf:entity/machines/stfr/states/self_destruct/beam_random',n:4}
 execute if score @s terf_data_E matches 3320.. run scoreboard players add @s terf_data_M 1032634
 execute if score @s terf_data_E matches 3320.. run particle minecraft:explosion ~ ~ ~ 0.01 0.01 0.01 3 10 force
@@ -122,12 +122,12 @@ data modify storage terf:temp args3.command set value "execute positioned ^ ^ ^-
 execute if score temp terf_states matches 0.. rotated -90 0 run function datapipes_lib:require/run_relative_rotated with storage terf:temp args3
 execute if score temp terf_states matches 0.. rotated 90 0 run function datapipes_lib:require/run_relative_rotated with storage terf:temp args3
 
-execute if score @s terf_data_E matches 3542 positioned ~10 ~ ~ run function terf:entity/machines/stfr/explode_stabilizer
-execute if score @s terf_data_E matches 3566 positioned ~-10 ~ ~ run function terf:entity/machines/stfr/explode_stabilizer
-execute if score @s terf_data_E matches 3618 positioned ~ ~10 ~ run function terf:entity/machines/stfr/explode_stabilizer
-execute if score @s terf_data_E matches 3570 positioned ~ ~-10 ~ run function terf:entity/machines/stfr/explode_stabilizer
-execute if score @s terf_data_E matches 3515 positioned ~ ~ ~10 run function terf:entity/machines/stfr/explode_stabilizer
-execute if score @s terf_data_E matches 3689 positioned ~ ~ ~-10 run function terf:entity/machines/stfr/explode_stabilizer
+execute if score @s terf_data_E matches 3542 positioned ~10 ~ ~ run function terf:entity/machines/stfr/actions/stabilizer/explode
+execute if score @s terf_data_E matches 3566 positioned ~-10 ~ ~ run function terf:entity/machines/stfr/actions/stabilizer/explode
+execute if score @s terf_data_E matches 3618 positioned ~ ~10 ~ run function terf:entity/machines/stfr/actions/stabilizer/explode
+execute if score @s terf_data_E matches 3570 positioned ~ ~-10 ~ run function terf:entity/machines/stfr/actions/stabilizer/explode
+execute if score @s terf_data_E matches 3515 positioned ~ ~ ~10 run function terf:entity/machines/stfr/actions/stabilizer/explode
+execute if score @s terf_data_E matches 3689 positioned ~ ~ ~-10 run function terf:entity/machines/stfr/actions/stabilizer/explode
 
 execute if score @s terf_data_E matches 3320 run title @a[distance=..256,tag=!terf_epilepsy_mode] times 0t 50s 10s
 execute if score @s terf_data_E matches 3320 run title @a[distance=..256,tag=!terf_epilepsy_mode] title {"text":"\uEff3"}

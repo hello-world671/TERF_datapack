@@ -1,4 +1,4 @@
-playsound terf:alarms.computer_crash master @a ~ ~ ~ 0.3 2
+playsound terf:alarms.computer_crash master @a ~ ~ ~ 0.1 2
 
 #halt runtime
 data modify storage terf:temp array set value []
