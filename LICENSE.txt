@@ -2,14 +2,15 @@ Copyright (c) 2026 jona23
 
 All Rights Reserved.
 
-This source code is provided for viewing and reference purposes only.
+## You may:
+- Clone or copy the ENTIRITY of this repository as a whole with no modifications.
+- Modify the contents of this repository for the sole purpose of submitting pull-requests to the official repository.
 
-You are NOT permitted to:
-- Copy, reproduce, or redistribute this code
-- Modify or create derivative works
-- Use this code in any project (public or private)
-- Publish this code or any modified version
-
-without explicit prior written permission from the author.
+## You may not:
+- Clone, copy, use or reproduce only PARTS of this repository.
+- Modify the contents of this repository for purposes OTHER than submitting pull-requests to the official repository.
+- Redistribute the modified contents of this repository.
+- Use the modified contents of this repository ON a Minecraft multiplayer server.
+- Use the modified contents of this repository IN any project (public or private).
 
 Unauthorized use may result in legal action.
