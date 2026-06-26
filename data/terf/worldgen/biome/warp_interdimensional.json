@@ -3,11 +3,13 @@
   "downfall": 0,
   "has_precipitation": false,
   "temperature_modifier": "frozen",
+  "attributes": {
+    "visual/sky_color": 65794,
+    "visual/fog_color": 65794,
+    "visual/water_fog_color": 25343
+  },
   "effects": {
-    "sky_color": 65794,
-    "fog_color": 65794,
     "water_color": 262399,
-    "water_fog_color": 25343,
     "grass_color": 2190886,
     "foliage_color": 3903829
   },
