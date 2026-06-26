@@ -1,10 +1,14 @@
 {
   "attributes": {
     "minecraft:visual/fog_end_distance": 726.0,
-    "minecraft:audio/ambient_sounds": {
-      "additions": {
-        "sound": "terf:music/space_ambience",
-        "tick_chance": 1
+    "minecraft:audio/background_music": {
+      "default": {
+        "sound": {
+          "sound_id": "terf:music.space_ambience"
+        },
+        "min_delay": 0,
+        "max_delay": 0,
+        "replace_current_music": true
       }
     }
   },
