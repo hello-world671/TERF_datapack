@@ -1,6 +1,12 @@
 {
   "attributes": {
-    "minecraft:visual/fog_end_distance": 725.0
+    "minecraft:visual/fog_end_distance": 725.0,
+    "minecraft:audio/ambient_sounds": {
+      "additions": {
+        "sound": "terf:music/space_ambience",
+        "tick_chance": 1
+      }
+    }
   },
   "temperature": -31,
   "downfall": 0,
