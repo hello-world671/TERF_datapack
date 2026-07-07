@@ -8,5 +8,8 @@ particle minecraft:campfire_cosy_smoke ~ ~ ~ 0 0 0 0 1 force
 particle minecraft:campfire_cosy_smoke ^ ^ ^0.5 0 0 0 0 1 force
 
 execute unless block ~ ~ ~ #terf:laser_can_go_through run function terf:entity/vehicle/art/beam/hit_block
+tag @s add terf_currententity
+execute as @e[tag=terf_can_block_art] run function terf:entity/vehicle/art/beam/block_if_within_distance with entity @s data.terf
+tag @s remove terf_currententity
 execute positioned ~-.5 ~-.5 ~-.5 as @e[type=!item,dx=0,dy=0,dz=0] if function terf:entity/vehicle/art/beam/can_be_hit run return run function terf:entity/vehicle/art/beam/hit_entity
 execute if score terminated terf_states matches 1.. positioned ^ ^ ^1 run function terf:entity/vehicle/art/beam/power_raycast
